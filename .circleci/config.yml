@@ -53,7 +53,7 @@ jobs:
           key: rubykubernetescontroller-{{ checksum "rubykubernetescontroller.gemspec" }}
       - run:
           name:
-          command: bundle exec rake test >> reports
+          command: bundle exec rake test >> test/reports
           when: always
       - store_test_results:
           path: test/reports
