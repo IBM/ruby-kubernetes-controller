@@ -75,7 +75,6 @@ jobs:
             gem build rubykubernetescontroller.gemspec
             gem push "rubykubernetescontroller-$(git describe --tags).gem"
 
-
 workflows:
   version: 2
   deployment:
