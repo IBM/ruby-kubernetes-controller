@@ -109,10 +109,21 @@ workflows:
               only: /^\d+(\.\d+)*$/
             branches:
               ignore: /.*/
+      - hold:
+          type: approval
+          requires:
+            - test
+            - build
+          filters:
+            tags:
+              only: /^\d+(\.\d+)*$/
+            branches:
+              ignore: /.*/
       - publish:
           requires:
             - build
             - test
+            - hold
           filters:
             tags:
               only: /^\d+(\.\d+)*$/
