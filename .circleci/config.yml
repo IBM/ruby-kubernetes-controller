@@ -73,20 +73,42 @@ jobs:
           name: Publish to Rubygems
           command: |
             gem build rubykubernetescontroller.gemspec
-            gem push "rubykubernetescontroller-$(git describe --tags).gem"
+            gem push "rubykubernetescontroller-$CIRCLE_TAG.gem"
 
 workflows:
   version: 2
   deployment:
-    jobs:
-      - build
-      - test
-      - publish:
-          requires:
-            - build
-            - test
-          filters:
-            tags:
-              only: /.*/
-            branches:
-              ignore: /.*/
+    development-build:
+      jobs:
+        - build
+            filters:
+              tags:
+                only: /^dev.*/
+        - test
+            requires:
+              - build
+            filters:
+              tags:
+                only: /^dev.*/
+    production-build:
+      jobs:
+        - build
+            filters:
+              tags:
+                only: /^prod.*/
+        - test
+            requires:
+              - build
+            filters:
+              tags:
+                only: /^prod.*/
+        - publish
+            type: approval
+            requires:
+              - build
+              - test
+            filters:
+              tags:
+                only: /^prod.*/
+              branches:
+                ignore: /.*/
