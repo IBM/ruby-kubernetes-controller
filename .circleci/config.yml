@@ -8,20 +8,27 @@ jobs:
       - image: circleci/ruby:2.6.3
 
     working_directory: ~/repo
-
     steps:
       - checkout
+      - run:
+          name: Install Bundler
+          command: gem install bundler
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - rubykubernetescontroller-{{ checksum "rubykubernetescontroller.gemspec" }}
             # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-      - run: bundle check || bundle install
+            - rubykubernetescontroller-
+      - run:
+          name: Install Bundles
+          command: bundle check || bundle install
       - save_cache:
           paths:
             - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-      - run: gem build rubykubernetescontroller.gemspec
+          key: rubykubernetescontroller-{{ checksum "rubykubernetescontroller.gemspec" }}
+      - run:
+          name: Build gem
+          command: gem build rubykubernetescontroller.gemspec
+
   test:
     docker:
       - image: circleci/ruby:2.6.3
@@ -29,12 +36,28 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run: bundle check || bundle install
       - run:
+          name: Install Bundler
+          command: gem install bundler
+      - restore_cache:
+          keys:
+            - rubykubernetescontroller-{{ checksum "rubykubernetescontroller.gemspec" }}
+            # fallback to using the latest cache if no exact match is found
+            - rubykubernetescontroller-
+      - run:
+          name: Install Bundles
+          command: bundle check || bundle install
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: rubykubernetescontroller-{{ checksum "rubykubernetescontroller.gemspec" }}
+      - run:
+          name:
           command: bundle exec rake test
           when: always
       - store_test_results:
           path: test/reports
+
 #  publish:
 #    docker:
 #      - image: circleci/ruby:2.6.3
