@@ -1,4 +1,4 @@
-require "test_helper"
+require_relative "test_helper"
 
 class RubyKubernetesControllerTest < Minitest::Test
   def test_version_number
