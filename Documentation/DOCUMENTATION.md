@@ -4,10 +4,9 @@
 Before beginning, you must generate a bearer token for the Ruby Kubernetes Controller to use:
 
 
-1. Save the following as `serviceaccount.yaml`
-    <p align="center"><img width=100% src="./documentation-assets/serviceaccount.yaml.png"></p>
-    <p align="center"><img width=100% src="./documentation-assets/carbon.png"></p>
-2. Run the following in a terminal, with kubectl pre-configured for your existing cluster
+1. Save the following as `serviceaccount.yaml` (file available [here][SERVICEACCOUNT])
+    <p align="center"><img width=100% src="./Documentation/serviceaccount.png"></p>
+2. Run the following in a terminal, with `kubectl` pre-configured for your existing cluster
     ```bash
     $ kubectl apply -f serviceaccount.yaml
     $ kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
@@ -1603,3 +1602,5 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
     
     puts yaml_client.delete_persistentvolumeclaim(namespace, persistentvolumeclaim_name, yaml_file_path) # Returns JSON
 ```
+
+[SERVICEACCOUNT]: https://github.com/IBM/ruby-kubernetes-controller/blob/master/Documentation/serviceaccount.yaml
