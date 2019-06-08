@@ -16,7 +16,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_get_nodes
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.get_nodes
     end
 
@@ -27,7 +27,7 @@ class RubyKubernetesControllerTest < Minitest::Test
 
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.create_new_namespace('{"kind": "Namespace","apiVersion": "v1"}')
     end
 
@@ -38,7 +38,7 @@ class RubyKubernetesControllerTest < Minitest::Test
 
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.get_all_namespaces
     end
 
@@ -49,7 +49,7 @@ class RubyKubernetesControllerTest < Minitest::Test
 
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.update_namespace("default", '{"kind": "Namespace","apiVersion": "v1"}')
     end
 
@@ -59,7 +59,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_patch_namespace
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.patch_namespace('default', '[{ "op": "replace", "path": "/spec/path", "value": "testvalue" }]')
     end
 
@@ -69,7 +69,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_delete_namespace
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.delete_namespace('default', '{"kind": "Namespace","apiVersion": "v1"}')
     end
 
@@ -79,7 +79,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_create_new_ingress
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.create_new_ingress('default', '{"apiVersion":"extensions/v1beta1","kind":"Ingress","metadata":{"name":"test-ingress"},"spec":{"backend":{"serviceName":"testsvc","servicePort":80}}}')
     end
 
@@ -89,7 +89,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_get_all_ingresses
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.get_all_ingresses
     end
 
@@ -99,7 +99,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_get_all_namespaced_ingresses
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.get_all_namespaced_ingresses('default')
     end
 
@@ -109,7 +109,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_get_single_namespaced_ingress
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.get_single_namespaced_ingress('default', 'ingress')
     end
 
@@ -120,7 +120,7 @@ class RubyKubernetesControllerTest < Minitest::Test
 
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.update_namespaced_ingress("default","ingress",'{"kind": "Ingress","apiVersion": "extensions/v1beta1"}')
     end
 
@@ -130,7 +130,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_patch_ingress
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.patch_ingress('default','ingress', '[{ "op": "replace", "path": "/spec/path", "value": "testvalue" }]')
     end
 
@@ -140,7 +140,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_delete_ingress
     client = ::RubyKubernetesController::Client.new("localhost","TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.delete_ingress('default',"ingress", '{"kind": "Ingress","apiVersion": "extensions/v1beta1"}')
     end
 
@@ -150,7 +150,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_create_new_replicaset
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.create_new_replicaset('default', '{"apiVersion":"extensions/v1beta1","kind":"ReplicaSet","metadata":{"name":"test-replicaset"},"spec":{"backend":{"serviceName":"testsvc","servicePort":80}}}')
     end
 
@@ -160,7 +160,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_get_all_replicasets
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.get_all_replicasets
     end
 
@@ -170,7 +170,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_get_all_namespaced_replicasets
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.get_all_namespaced_replicasets('default')
     end
 
@@ -180,7 +180,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_get_single_namespaced_replicaset
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.get_single_namespaced_replicaset('default', 'replicaset')
     end
 
@@ -191,7 +191,7 @@ class RubyKubernetesControllerTest < Minitest::Test
 
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.update_namespaced_replicaset("default","replicaset",'{"kind": "ReplicaSet","apiVersion": "extensions/v1beta1"}')
     end
 
@@ -201,7 +201,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_patch_replicaset
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.patch_replicaset('default','replicaset', '[{ "op": "replace", "path": "/spec/path", "value": "testvalue" }]')
     end
 
@@ -211,7 +211,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_delete_replicaset
     client = ::RubyKubernetesController::Client.new("localhost","TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.delete_replicaset('default',"replicaset", '{"kind": "ReplicaSet","apiVersion": "extensions/v1beta1"}')
     end
 
@@ -221,7 +221,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_create_new_endpoint
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.create_new_endpoint('default', '{"kind":"Endpoints","apiVersion":"v1"}')
     end
 
@@ -231,7 +231,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_get_all_endpoints
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.get_all_endpoints
     end
 
@@ -241,7 +241,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_get_all_namespaced_endpoints
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.get_all_namespaced_endpoints('default')
     end
 
@@ -251,7 +251,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_get_single_namespaced_endpoint
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.get_single_namespaced_endpoint('default', 'endpoint')
     end
 
@@ -262,7 +262,7 @@ class RubyKubernetesControllerTest < Minitest::Test
 
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.update_namespaced_endpoint("default","endpoint",'{"kind":"Endpoints","apiVersion":"v1"}')
     end
 
@@ -272,7 +272,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_patch_endpoint
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.patch_endpoint('default','endpoint', '[{ "op": "replace", "path": "/spec/path", "value": "testvalue" }]')
     end
 
@@ -282,7 +282,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_delete_endpoint
     client = ::RubyKubernetesController::Client.new("localhost","TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.delete_endpoint('default',"endpoint", '{"kind":"Endpoints","apiVersion":"v1"}')
     end
 
@@ -292,7 +292,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_create_new_pod
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.create_new_pod('default', '{"kind":"Pod","apiVersion":"v1"}')
     end
 
@@ -302,7 +302,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_get_all_pods
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.get_all_pods
     end
 
@@ -312,7 +312,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_get_all_namespaced_pods
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.get_all_namespaced_pods('default')
     end
 
@@ -322,7 +322,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_get_single_namespaced_pod
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.get_single_namespaced_pod('default', 'pod')
     end
 
@@ -333,7 +333,7 @@ class RubyKubernetesControllerTest < Minitest::Test
 
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.update_namespaced_pod("default","pod",'{"kind":"Pod","apiVersion":"v1"}')
     end
 
@@ -343,7 +343,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_patch_pod
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.patch_pod('default','pod', '[{ "op": "replace", "path": "/spec/path", "value": "testvalue" }]')
     end
 
@@ -353,7 +353,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_delete_pod
     client = ::RubyKubernetesController::Client.new("localhost","TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.delete_pod('default',"pod", '{"kind":"Pod","apiVersion":"v1"}')
     end
 
@@ -363,7 +363,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_create_new_service
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.create_new_service('default', '{"kind":"Service","apiVersion":"v1"}')
     end
 
@@ -373,7 +373,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_get_all_services
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.get_all_services
     end
 
@@ -383,7 +383,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_get_all_namespaced_services
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.get_all_namespaced_services('default')
     end
 
@@ -393,7 +393,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_get_single_namespaced_service
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.get_single_namespaced_service('default', 'service')
     end
 
@@ -404,7 +404,7 @@ class RubyKubernetesControllerTest < Minitest::Test
 
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.update_namespaced_service("default","service",'{"kind":"Service","apiVersion":"v1"}')
     end
 
@@ -414,7 +414,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_patch_service
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.patch_service('default','service', '[{ "op": "replace", "path": "/spec/path", "value": "testvalue" }]')
     end
 
@@ -424,7 +424,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_delete_service
     client = ::RubyKubernetesController::Client.new("localhost","TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.delete_service('default',"service")
     end
 
@@ -434,7 +434,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_create_new_deployment
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.create_new_deployment('default', '{"kind":"Deployment","apiVersion":"apps/v1beta1"}')
     end
 
@@ -444,7 +444,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_get_all_deployments
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.get_all_deployments
     end
 
@@ -454,7 +454,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_get_all_namespaced_deployments
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.get_all_namespaced_deployments('default')
     end
 
@@ -464,7 +464,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_get_single_namespaced_deployment
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.get_single_namespaced_deployment('default', 'deployment')
     end
 
@@ -475,7 +475,7 @@ class RubyKubernetesControllerTest < Minitest::Test
 
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.update_namespaced_deployment("default","deployment",'{"kind":"Deployment","apiVersion":"apps/v1beta1"}')
     end
 
@@ -485,7 +485,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_patch_deployment
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.patch_deployment('default','deployment', '[{ "op": "replace", "path": "/spec/path", "value": "testvalue" }]')
     end
 
@@ -495,7 +495,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_delete_deployment
     client = ::RubyKubernetesController::Client.new("localhost","TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.delete_deployment('default',"deployment", '{"kind":"Deployment","apiVersion":"apps/v1beta1"}')
     end
 
@@ -506,7 +506,7 @@ class RubyKubernetesControllerTest < Minitest::Test
 
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.create_new_configmap("default", '{"kind": "ConfigMap","apiVersion": "v1"}')
     end
 
@@ -517,7 +517,7 @@ class RubyKubernetesControllerTest < Minitest::Test
 
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.get_all_configmaps
     end
 
@@ -528,7 +528,7 @@ class RubyKubernetesControllerTest < Minitest::Test
 
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.update_configmap("default", "ConfigMap", '{"kind": "ConfigMap","apiVersion": "v1"}')
     end
 
@@ -538,7 +538,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_patch_configmap
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.patch_configmap('default', "ConfigMap", '[{ "op": "replace", "path": "/spec/path", "value": "testvalue" }]')
     end
 
@@ -548,7 +548,7 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_delete_configmap
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
-    exception = assert_raises RuntimeError do
+    exception = assert_raises Exception do
       client.delete_configmap('default', "ConfigMap", '{"kind": "ConfigMap","apiVersion": "v1"}')
     end
 
@@ -558,25 +558,25 @@ class RubyKubernetesControllerTest < Minitest::Test
   def test_client_check_valid_json
     client = ::RubyKubernetesController::Client.new("localhost","TOKEN", false, true)
 
-    exception0 = assert_raises RuntimeError do
+    exception0 = assert_raises Exception do
       client.delete_pod('default',"pod", '{"test": "test"}')
     end
 
     assert_equal('JSON entered instead of yaml file for a yaml client', exception0.message)
 
-    exception1 = assert_raises RuntimeError do
+    exception1 = assert_raises Exception do
       client.delete_endpoint('default',"pod", '{"test": "test"}')
     end
 
     assert_equal('JSON entered instead of yaml file for a yaml client', exception1.message)
 
-    exception2 = assert_raises RuntimeError do
+    exception2 = assert_raises Exception do
       client.delete_ingress('default',"pod", '{"test": "test"}')
     end
 
     assert_equal('JSON entered instead of yaml file for a yaml client', exception2.message)
 
-    exception3 = assert_raises RuntimeError do
+    exception3 = assert_raises Exception do
       client.delete_namespace('default', '{"test": "test"}')
     end
 
