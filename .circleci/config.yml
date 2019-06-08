@@ -58,22 +58,22 @@ jobs:
       - store_test_results:
           path: test/reports
 
-#  publish:
-#    docker:
-#      - image: circleci/ruby:2.6.3
-#
-#    working_directory: ~/repo
-#    steps:
-#      - checkout
-#      - run:
-#          name: Setup Rubygems
-#          command: bash .circleci/setup-rubygems.sh
-#
-#      - run:
-#          name: Publish to Rubygems
-#          command: |
-#            gem build rubykubernetescontroller.gemspec
-#            gem push "rubykubernetescontroller-$(git describe --tags).gem"
+  publish:
+    docker:
+      - image: circleci/ruby:2.6.3
+
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Setup Rubygems
+          command: bash .circleci/setup-rubygems.sh
+
+      - run:
+          name: Publish to Rubygems
+          command: |
+            gem build rubykubernetescontroller.gemspec
+            gem push "rubykubernetescontroller-$(git describe --tags).gem"
 
 
 workflows:
@@ -82,12 +82,12 @@ workflows:
     jobs:
       - build
       - test
-#      - publish:
-#          requires:
-#            - build
-#            - test
-#          filters:
-#            tags:
-#              only: /.*/
-#            branches:
-#              ignore: /.*/
+      - publish:
+          requires:
+            - build
+            - test
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              ignore: /.*/
