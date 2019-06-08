@@ -6,6 +6,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 
 1. Save the following as `serviceaccount.yaml`
     <p align="center"><img width=100% src="./documentation-assets/serviceaccount.yaml.png"></p>
+    <p align="center"><img width=100% src="./documentation-assets/carbon.png"></p>
 2. Run the following in a terminal, with kubectl pre-configured for your existing cluster
     ```bash
     $ kubectl apply -f serviceaccount.yaml
