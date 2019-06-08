@@ -83,24 +83,32 @@ workflows:
             filters:
               tags:
                 only: /^dev.*/
+              branches:
+                ignore: /.*/
         - test:
             requires:
               - build
             filters:
               tags:
                 only: /^dev.*/
+              branches:
+                ignore: /.*/
   production-build:
     jobs:
       - build:
           filters:
             tags:
               only: /^prod.*/
+            branches:
+              ignore: /.*/
       - test:
           requires:
             - build
           filters:
             tags:
               only: /^prod.*/
+            branches:
+              ignore: /.*/
       - publish:
           type: approval
           requires:
