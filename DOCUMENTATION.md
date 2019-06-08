@@ -3,7 +3,7 @@
 ## Pre-requisites
 Before beginning, you must generate a bearer token for the Ruby Kubernetes Controller to use:
 
-<p align="center"><img width=100% src="./documentation-assets/serviceaccount.png"></p>
+<p align="center"><img width=100% src="./documentation-assets/serviceaccount.yaml.png"></p>
 
 1. Save the following as `serviceaccount.yaml`
     ```yaml
