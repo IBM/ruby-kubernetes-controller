@@ -1,9 +1,9 @@
-# Rubykubernetescontroller
+# Ruby Kubernetes Controller
 
-`RubyKubernetesController` is a Client-Side library which allows users to 
+`Ruby Kubernetes Controller` is a Client-Side library which allows users to 
 interact with core Kubernetes APIs natively from within their 
-Ruby applications. This library is compatible with all leading Kubernetes I
-nstances, including OpenShift Kubernetes, Azure Kubernetes Service, 
+Ruby applications. This library is compatible with all leading Kubernetes 
+Instances, including OpenShift Kubernetes, Azure Kubernetes Service, 
 Amazon EKS, Google Kubernetes Service, IBM Kubernetes Service, and Rancher 
 Orchestrated Kubernetes. This library also supports yaml ingestion 
 for creating, patching, updating, or deleting existing Kubernetes 
