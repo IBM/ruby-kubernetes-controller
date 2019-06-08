@@ -79,11 +79,11 @@ workflows:
   version: 2
   development-build:
       jobs:
-        - build
+        - build:
             filters:
               tags:
                 only: /^dev.*/
-        - test
+        - test:
             requires:
               - build
             filters:
@@ -91,17 +91,17 @@ workflows:
                 only: /^dev.*/
   production-build:
     jobs:
-      - build
+      - build:
           filters:
             tags:
               only: /^prod.*/
-      - test
+      - test:
           requires:
             - build
           filters:
             tags:
               only: /^prod.*/
-      - publish
+      - publish:
           type: approval
           requires:
             - build
