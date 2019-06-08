@@ -73,8 +73,7 @@ jobs:
           name: Publish to Rubygems
           command: |
             gem build rubykubernetescontroller.gemspec
-            echo "$CIRCLE_TAG"
-            echo $CIRCLE_TAG
+            gem push rubykubernetescontroller-$CIRCLE_TAG.gem
 
 workflows:
   version: 2
@@ -99,7 +98,7 @@ workflows:
       - build:
           filters:
             tags:
-              only: /^prod.*/
+              only: /^\d+(\.\d+)*$/
             branches:
               ignore: /.*/
       - test:
@@ -107,7 +106,7 @@ workflows:
             - build
           filters:
             tags:
-              only: /^prod.*/
+              only: /^\d+(\.\d+)*$/
             branches:
               ignore: /.*/
       - publish:
@@ -116,6 +115,6 @@ workflows:
             - test
           filters:
             tags:
-              only: /^prod.*/
+              only: /^\d+(\.\d+)*$/
             branches:
               ignore: /.*/
