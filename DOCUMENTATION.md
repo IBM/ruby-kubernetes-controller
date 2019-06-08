@@ -3,29 +3,9 @@
 ## Pre-requisites
 Before beginning, you must generate a bearer token for the Ruby Kubernetes Controller to use:
 
-<p align="center"><img width=100% src="./documentation-assets/serviceaccount.yaml.png"></p>
 
 1. Save the following as `serviceaccount.yaml`
-    ```yaml
-    apiVersion: v1
-    kind: ServiceAccount
-    metadata:
-      name: admin-user
-      namespace: kube-system
-    ---
-    apiVersion: rbac.authorization.k8s.io/v1
-    kind: ClusterRoleBinding
-    metadata:
-      name: admin-user
-    roleRef:
-      apiGroup: rbac.authorization.k8s.io
-      kind: ClusterRole
-      name: cluster-admin
-    subjects:
-    - kind: ServiceAccount
-      name: admin-user
-      namespace: kube-system
-    ```
+    <p align="center"><img width=100% src="./documentation-assets/serviceaccount.yaml.png"></p>
 2. Run the following in a terminal, with kubectl pre-configured for your existing cluster
     ```bash
     $ kubectl apply -f serviceaccount.yaml
