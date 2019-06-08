@@ -73,7 +73,9 @@ jobs:
           name: Publish to Rubygems
           command: |
             gem build rubykubernetescontroller.gemspec
-            gem push "rubykubernetescontroller-$CIRCLE_TAG.gem"
+#            gem push "rubykubernetescontroller-$CIRCLE_TAG.gem"
+            echo "$CIRCLE_TAG"
+            echo $CIRCLE_TAG
 
 workflows:
   version: 2
