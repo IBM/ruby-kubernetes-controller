@@ -111,7 +111,6 @@ workflows:
             branches:
               ignore: /.*/
       - publish:
-          type: approval
           requires:
             - build
             - test
