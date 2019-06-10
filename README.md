@@ -1,6 +1,6 @@
 # Ruby Kubernetes Controller
 
-Current Build: [![CircleCI](https://circleci.com/gh/IBM/ruby-kubernetes-controller.svg?style=svg)](https://circleci.com/gh/IBM/ruby-kubernetes-controller)
+[![CircleCI](https://circleci.com/gh/IBM/ruby-kubernetes-controller.svg?style=svg)](https://circleci.com/gh/IBM/ruby-kubernetes-controller) [![Gem Version](https://badge.fury.io/rb/ruby-kubernetes-controller.svg)](https://badge.fury.io/rb/ruby-kubernetes-controller)
 
 `Ruby Kubernetes Controller` is a Client-Side library which allows users to 
 interact with core Kubernetes APIs natively from within their 
