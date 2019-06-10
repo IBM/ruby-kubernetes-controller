@@ -3,7 +3,7 @@ require 'uri'
 require 'openssl'
 require 'json'
 
-require 'rubykubernetescontroller/generic'
+require_relative 'generic'
 
 module Deployments
     include Generic

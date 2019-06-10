@@ -3,14 +3,14 @@ require 'uri'
 require 'openssl'
 require 'json'
 
-require 'rubykubernetescontroller/generic'
+require_relative 'generic'
 
-module Pods
+module Ingresses
   include Generic
 
-  # Create new Pod
-  def create_new_pod(namespace, config)
-    extension = "/api/v1/namespaces/#{namespace}/pods"
+  # Create new Ingress
+  def create_new_ingress(namespace, config)
+    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/ingresses"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -36,9 +36,9 @@ module Pods
     end
   end
 
-  # Get all Pods
-  def get_all_pods
-    extension = "/api/v1/pods"
+  # Get all Ingresses
+  def get_all_ingresses
+    extension = "/apis/extensions/v1beta1/ingresses"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -57,9 +57,9 @@ module Pods
     end
   end
 
-  # Get all existing Pods in Namespace
-  def get_all_namespaced_pods(namespace)
-    extension = "/api/v1/namespaces/#{namespace}/pods"
+  # Get all existing Ingresses in Namespace
+  def get_all_namespaced_ingresses(namespace)
+    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/ingresses"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -78,9 +78,9 @@ module Pods
     end
   end
 
-  # Get single Pod in Namespace
-  def get_single_namespaced_pod(namespace, pod_name)
-    extension = "/api/v1/namespaces/#{namespace}/pods/#{pod_name}"
+  # Get single Ingress in Namespace
+  def get_single_namespaced_ingress(namespace, ingress_name)
+    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/ingresses/#{ingress_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -98,9 +98,9 @@ module Pods
     end
   end
 
-  # Update existing Pod in Namespace
-  def update_namespaced_pod(namespace, pod_name, update)
-    extension = "/api/v1/namespaces/#{namespace}/pods/#{pod_name}"
+  # Update existing Ingress in Namespace
+  def update_namespaced_ingress(namespace, ingress_name, update)
+    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/ingresses/#{ingress_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -126,9 +126,9 @@ module Pods
     end
   end
 
-  # Patch existing Pod
-  def patch_pod(namespace, pod_name, patch)
-    extension = "/api/v1/namespaces/#{namespace}/pods/#{pod_name}"
+  # Patch existing Ingress
+  def patch_ingress(namespace, ingress_name, patch)
+    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/ingresses/#{ingress_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -149,9 +149,9 @@ module Pods
     end
   end
 
-  # Delete existing Pod
-  def delete_pod(namespace, pod_name, options = '')
-    extension = "/api/v1/namespaces/#{namespace}/pods/#{pod_name}"
+  # Delete existing Namespace
+  def delete_ingress(namespace, ingress_name, options = '')
+    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/ingresses/#{ingress_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -178,5 +178,3 @@ module Pods
   end
 
 end
-
-

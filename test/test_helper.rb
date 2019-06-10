@@ -1,5 +1,5 @@
 $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
-require "rubykubernetescontroller"
+require "ruby-kubernetes-controller"
 
 require "minitest"
 require "minitest/autorun"

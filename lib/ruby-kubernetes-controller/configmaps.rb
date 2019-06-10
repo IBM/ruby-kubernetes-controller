@@ -3,18 +3,18 @@ require 'uri'
 require 'openssl'
 require 'json'
 
-require 'rubykubernetescontroller/generic'
+require_relative 'generic'
 
-module Ingresses
+module ConfigMaps
   include Generic
 
-  # Create new Ingress
-  def create_new_ingress(namespace, config)
-    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/ingresses"
+  # Create new ConfigMap
+  def create_new_configmap(namespace, config)
+    extension = "/api/v1/namespaces/#{namespace}/configmaps"
 
     uri = prepareURI(@endpoint, extension)
 
-    request = prepareGenericRequest(uri, @bearer_token, "POST")
+    request = prepareGenericRequest(uri, @bearer_token,  "POST")
     request.content_type = "application/json"
 
     if @yaml
@@ -36,9 +36,9 @@ module Ingresses
     end
   end
 
-  # Get all Ingresses
-  def get_all_ingresses
-    extension = "/apis/extensions/v1beta1/ingresses"
+  # Get all ConfigMaps
+  def get_all_configmaps
+    extension = "/api/v1/configmaps"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -57,9 +57,9 @@ module Ingresses
     end
   end
 
-  # Get all existing Ingresses in Namespace
-  def get_all_namespaced_ingresses(namespace)
-    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/ingresses"
+  # Get all ConfigMaps in a Namespace
+  def get_all_namespaced_configmaps(namespace)
+    extension = "/api/v1/namespaces/#{namespace}/configmaps"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -78,9 +78,9 @@ module Ingresses
     end
   end
 
-  # Get single Ingress in Namespace
-  def get_single_namespaced_ingress(namespace, ingress_name)
-    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/ingresses/#{ingress_name}"
+  # Get a single ConfigMap from a Namespace
+  def get_single_namespaced_configmap(namespace, configmap_name)
+    extension = "/api/v1/namespaces/#{namespace}/configmaps/#{configmap_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -98,9 +98,9 @@ module Ingresses
     end
   end
 
-  # Update existing Ingress in Namespace
-  def update_namespaced_ingress(namespace, ingress_name, update)
-    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/ingresses/#{ingress_name}"
+  # Update existing ConfigMap in Namespace
+  def update_configmap(namespace, configmap_name, update)
+    extension = "/api/v1/namespaces/#{namespace}/configmaps/#{configmap_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -126,9 +126,9 @@ module Ingresses
     end
   end
 
-  # Patch existing Ingress
-  def patch_ingress(namespace, ingress_name, patch)
-    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/ingresses/#{ingress_name}"
+  # Patch existing ConfigMap in Namespace
+  def patch_configmap(namespace, configmap_name, patch)
+    extension = "/api/v1/namespaces/#{namespace}/configmaps/#{configmap_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -149,9 +149,9 @@ module Ingresses
     end
   end
 
-  # Delete existing Namespace
-  def delete_ingress(namespace, ingress_name, options = '')
-    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/ingresses/#{ingress_name}"
+  # Delete existing ConfigMap in Namespace
+  def delete_configmap(namespace, configmap_name, options = '')
+    extension = "/api/v1/namespaces/#{namespace}/configmaps/#{configmap_name}"
 
     uri = prepareURI(@endpoint, extension)
 

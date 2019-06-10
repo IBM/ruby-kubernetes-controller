@@ -3,18 +3,18 @@ require 'uri'
 require 'openssl'
 require 'json'
 
-require 'rubykubernetescontroller/generic'
+require_relative 'generic'
 
-module PersistentVolumeClaims
+module Pods
   include Generic
 
-  # Create new PersistentVolumeClaim
-  def create_new_persistentvolumeclaim(namespace, config)
-    extension = "/apis/apps/v1/namespaces/#{namespace}/persistentvolumeclaims"
+  # Create new Pod
+  def create_new_pod(namespace, config)
+    extension = "/api/v1/namespaces/#{namespace}/pods"
 
     uri = prepareURI(@endpoint, extension)
 
-    request = prepareGenericRequest(uri, @bearer_token,  "POST")
+    request = prepareGenericRequest(uri, @bearer_token, "POST")
     request.content_type = "application/json"
 
     if @yaml
@@ -36,9 +36,9 @@ module PersistentVolumeClaims
     end
   end
 
-  # Get all PersistentVolumeClaims
-  def get_all_persistentvolumeclaims
-    extension = "/apis/apps/v1/persistentvolumeclaims"
+  # Get all Pods
+  def get_all_pods
+    extension = "/api/v1/pods"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -57,9 +57,9 @@ module PersistentVolumeClaims
     end
   end
 
-  # Get all existing PersistentVolumeClaims in Namespace
-  def get_all_namespaced_persistentvolumeclaims(namespace)
-    extension = "/apis/apps/v1/namespaces/#{namespace}/persistentvolumeclaims"
+  # Get all existing Pods in Namespace
+  def get_all_namespaced_pods(namespace)
+    extension = "/api/v1/namespaces/#{namespace}/pods"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -78,9 +78,9 @@ module PersistentVolumeClaims
     end
   end
 
-  # Get single PersistentVolumeClaim in Namespace
-  def get_single_namespaced_persistentvolumeclaim(namespace, persistentvolumeclaim_name)
-    extension = "/apis/apps/v1/namespaces/#{namespace}/persistentvolumeclaims/#{persistentvolumeclaim_name}"
+  # Get single Pod in Namespace
+  def get_single_namespaced_pod(namespace, pod_name)
+    extension = "/api/v1/namespaces/#{namespace}/pods/#{pod_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -98,9 +98,9 @@ module PersistentVolumeClaims
     end
   end
 
-  # Update existing PersistentVolumeClaim in Namespace
-  def update_namespaced_persistentvolumeclaim(namespace, persistentvolumeclaim_name, update)
-    extension = "/apis/apps/v1/namespaces/#{namespace}/persistentvolumeclaims/#{persistentvolumeclaim_name}"
+  # Update existing Pod in Namespace
+  def update_namespaced_pod(namespace, pod_name, update)
+    extension = "/api/v1/namespaces/#{namespace}/pods/#{pod_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -124,12 +124,11 @@ module PersistentVolumeClaims
     rescue Errno::ECONNREFUSED
       raise "Connection for host #{uri.hostname} refused"
     end
-
   end
 
-  # Patch existing PersistentVolumeClaim in Namespace
-  def patch_persistentvolumeclaim(namespace, persistentvolumeclaim_name, patch)
-    extension = "/apis/apps/v1/namespaces/#{namespace}/persistentvolumeclaims/#{persistentvolumeclaim_name}"
+  # Patch existing Pod
+  def patch_pod(namespace, pod_name, patch)
+    extension = "/api/v1/namespaces/#{namespace}/pods/#{pod_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -150,9 +149,9 @@ module PersistentVolumeClaims
     end
   end
 
-  # Delete existing PersistentVolumeClaim in Namespace
-  def delete_persistentvolumeclaim(namespace, persistentvolumeclaim_name, options = '')
-    extension = "/apis/apps/v1/namespaces/#{namespace}/persistentvolumeclaims/#{persistentvolumeclaim_name}"
+  # Delete existing Pod
+  def delete_pod(namespace, pod_name, options = '')
+    extension = "/api/v1/namespaces/#{namespace}/pods/#{pod_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -179,3 +178,5 @@ module PersistentVolumeClaims
   end
 
 end
+
+

@@ -1,17 +1,17 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "rubykubernetescontroller/version"
+require "ruby-kubernetes-controller/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "rubykubernetescontroller"
+  spec.name          = "ruby-kubernetes-controller"
   spec.version       = RubyKubernetesController::VERSION
   spec.authors       = ["Shivansh Vij (ShivanshVij)", "Matthew Grech (mgrech)", "Zack Livingston (ZackLivingston)"]
   spec.email         = ["shivanshvij@outlook.com", "mgrech97@gmaii.com", "15zel@queensu.ca"]
 
   spec.summary       = %q{Ruby Kubernetes Controller is a Ruby Client Library for interacting with existing Kubernetes Clusters.}
   spec.description   = <<-EOF
-                          RubyKubernetesController allows users to interact with the core Kubernetes APIs natively from within their Ruby
+                          The Ruby Kubernetes Controller allows users to interact with the core Kubernetes APIs natively from within their Ruby
                           applications. This library is compatible with all leading Kubernetes Instances, including OpenShift Kubernetes, 
                           Azure Kubernetes Service, Amazon EKS, Google Kubernetes Service, IBM Kubernetes Service, and Rancher Orchestrated Kubernetes. 
                           This library also supports yaml ingestion for creating, patching, updating, or deleting existing Kubernetes types, 

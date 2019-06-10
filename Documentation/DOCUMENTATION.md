@@ -18,7 +18,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Nodes
 * List all nodes
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -32,7 +32,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Create new Namespace
 * Config options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_namespace
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -59,7 +59,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Namespaces
 * List all Namespaces
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -74,7 +74,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Update existing Namespace
 * Update options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_namespace
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -104,7 +104,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Patch existing Namespace
 * Patch Format documentation available at: http://jsonpatch.com/
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -127,7 +127,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Delete existing Namespace
 * Delete options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_deleteoptions
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -157,7 +157,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Create new Ingress
 * Config options documentation available at: https://kubernetes.io/docs/reference/federation/extensions/v1beta1/definitions/#_v1beta1_ingress
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -186,7 +186,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Ingresses
 * List all Ingresses
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -200,7 +200,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Namespaced Ingresses
 * List all existing Ingresses in Namespace
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -216,7 +216,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Single Namespaced Ingress
 * Get details for single Ingress in Namespace
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -234,7 +234,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Update existing Ingress in Namespace
 * Update options documentation available at: https://kubernetes.io/docs/reference/federation/extensions/v1beta1/definitions/#_v1beta1_ingress
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -266,7 +266,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Patch existing Ingress
 * Patch Format documentation available at: http://jsonpatch.com/
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -290,7 +290,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Delete existing Ingress
 * Delete options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_deleteoptions
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -322,7 +322,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Create new Endpoint
 * Config options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_service
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -351,7 +351,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Endpoints
 * List all Endpoints
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -365,7 +365,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Namespaced Endpoints
 * List all existing Endpoints in Namespace
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -381,7 +381,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Single Namespaced Endpoint
 * Get details for single Endpoint in Namespace
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -399,7 +399,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Update existing Endpoint in Namespace
 * Update options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_service
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -431,7 +431,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Patch existing Endpoint
 * Patch Format documentation available at: http://jsonpatch.com/
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -455,7 +455,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Delete existing Endpoint
 * Delete options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_deleteoptions
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -487,7 +487,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Create new Pod
 * Config options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_service
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     pod = "localhost"
     bearer_token = "token"
@@ -516,7 +516,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Pods
 * List all Pods
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     pod = "localhost"
     bearer_token = "token"
@@ -530,7 +530,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Namespaced Pods
 * List all existing Pods in Namespace
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     pod = "localhost"
     bearer_token = "token"
@@ -546,7 +546,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Single Namespaced Pod
 * Get details for single Pod in Namespace
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     pod = "localhost"
     bearer_token = "token"
@@ -564,7 +564,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Update existing Pod in Namespace
 * Update options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_service
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     pod = "localhost"
     bearer_token = "token"
@@ -596,7 +596,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Patch existing Pod
 * Patch Format documentation available at: http://jsonpatch.com/
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     pod = "localhost"
     bearer_token = "token"
@@ -620,7 +620,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Delete existing Pod
 * Delete options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_deleteoptions
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     pod = "localhost"
     bearer_token = "token"
@@ -652,7 +652,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Create new Service
 * Config options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_service
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     service = "localhost"
     bearer_token = "token"
@@ -681,7 +681,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Services
 * List all Services
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     service = "localhost"
     bearer_token = "token"
@@ -695,7 +695,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Namespaced Services
 * List all existing Services in Namespace
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     service = "localhost"
     bearer_token = "token"
@@ -711,7 +711,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Single Namespaced Service
 * Get details for single Service in Namespace
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     service = "localhost"
     bearer_token = "token"
@@ -729,7 +729,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Update existing Service in Namespace
 * Update options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_service
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     service = "localhost"
     bearer_token = "token"
@@ -761,7 +761,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Patch existing Service
 * Patch Format documentation available at: http://jsonpatch.com/
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     service = "localhost"
     bearer_token = "token"
@@ -784,7 +784,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Delete Service
 * Delete existing Service
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     service = "localhost"
     bearer_token = "token"
@@ -802,7 +802,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Create new Deployment
 * Config options documentation available at: https://kubernetes.io/docs/reference/federation/extensions/v1beta1/definitions/#_v1beta1_deployment
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -831,7 +831,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Deploymentes
 * List all Deploymentes
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -845,7 +845,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Namespaced Deploymentes
 * List all existing Deploymentes in Namespace
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -861,7 +861,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Single Namespaced Deployment
 * Get details for single Deployment in Namespace
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -879,7 +879,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Update existing Deployment in Namespace
 * Update options documentation available at: https://kubernetes.io/docs/reference/federation/extensions/v1beta1/definitions/#_v1beta1_deployment
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -911,7 +911,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Patch existing Deployment
 * Patch Format documentation available at: http://jsonpatch.com/
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -935,7 +935,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Delete existing Deployment
 * Delete options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_deleteoptions
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -967,7 +967,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Create new Replicaset
 * Config options documentation available at: https://kubernetes.io/docs/reference/federation/extensions/v1beta1/definitions/#_v1beta1_replicaset
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -996,7 +996,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Replicasets
 * List all Replicasets
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -1010,7 +1010,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Namespaced Replicasets
 * List all existing Replicasets in Namespace
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -1026,7 +1026,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Single Namespaced Replicaset
 * Get details for single Replicaset in Namespace
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -1044,7 +1044,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Update existing Replicaset in Namespace
 * Update options documentation available at: https://kubernetes.io/docs/reference/federation/extensions/v1beta1/definitions/#_v1beta1_replicaset
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -1076,7 +1076,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Patch existing Replicaset
 * Patch Format documentation available at: http://jsonpatch.com/
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -1100,7 +1100,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Delete existing Replicaset
 * Delete options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_deleteoptions
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     endpoint = "localhost"
     bearer_token = "token"
@@ -1132,7 +1132,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Create new Configmap
 * Config options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_configmap
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     configmap = "localhost"
     bearer_token = "token"
@@ -1161,7 +1161,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Configmaps
 * List all Configmaps
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     configmap = "localhost"
     bearer_token = "token"
@@ -1175,7 +1175,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Namespaced Configmaps
 * List all existing Configmaps in Namespace
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     configmap = "localhost"
     bearer_token = "token"
@@ -1191,7 +1191,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Single Namespaced Configmap
 * Get details for single Configmap in Namespace
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     configmap = "localhost"
     bearer_token = "token"
@@ -1209,7 +1209,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Update existing Configmap in Namespace
 * Update options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_configmap
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     configmap = "localhost"
     bearer_token = "token"
@@ -1241,7 +1241,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Patch existing Configmap
 * Patch Format documentation available at: http://jsonpatch.com/
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     configmap = "localhost"
     bearer_token = "token"
@@ -1265,7 +1265,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Delete existing Configmap
 * Delete options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_deleteoptions
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     configmap = "localhost"
     bearer_token = "token"
@@ -1297,7 +1297,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Create new PersistentVolume
 * Config options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_persistentvolume
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     persistentvolume = "localhost"
     bearer_token = "token"
@@ -1326,7 +1326,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get PersistentVolumes
 * List all PersistentVolumes
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     persistentvolume = "localhost"
     bearer_token = "token"
@@ -1340,7 +1340,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Single PersistentVolumes
 * Get details for single PersistentVolumes
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     persistentvolume = "localhost"
     bearer_token = "token"
@@ -1357,7 +1357,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Update existing PersistentVolumes in Namespace
 * Update options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_persistentvolume
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     persistentvolume = "localhost"
     bearer_token = "token"
@@ -1388,7 +1388,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Patch existing PersistentVolumes
 * Patch Format documentation available at: http://jsonpatch.com/
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     persistentvolume = "localhost"
     bearer_token = "token"
@@ -1411,7 +1411,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Delete existing PersistentVolumes
 * Delete options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_deleteoptions
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     persistentvolume = "localhost"
     bearer_token = "token"
@@ -1442,7 +1442,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Create new PersistentVolumeClaim
 * Config options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_persistentvolumeclaim
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     persistentvolumeclaim = "localhost"
     bearer_token = "token"
@@ -1471,7 +1471,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get PersistentVolumeClaims
 * List all PersistentVolumeClaims
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     persistentvolumeclaim = "localhost"
     bearer_token = "token"
@@ -1485,7 +1485,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Namespaced PersistentVolumeClaims
 * List all existing PersistentVolumeClaims in Namespace
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     persistentvolumeclaim = "localhost"
     bearer_token = "token"
@@ -1501,7 +1501,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 #### Get Single Namespaced PersistentVolumeClaims
 * Get details for single PersistentVolumeClaims in Namespace
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     persistentvolumeclaim = "localhost"
     bearer_token = "token"
@@ -1519,7 +1519,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Update existing PersistentVolumeClaims in Namespace
 * Update options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_persistentvolumeclaim
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     persistentvolumeclaim = "localhost"
     bearer_token = "token"
@@ -1551,7 +1551,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Patch existing PersistentVolumeClaims
 * Patch Format documentation available at: http://jsonpatch.com/
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     persistentvolumeclaim = "localhost"
     bearer_token = "token"
@@ -1575,7 +1575,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
 * Delete existing PersistentVolumeClaims
 * Delete options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_deleteoptions
 ```ruby
-    require 'rubykubernetescontroller'
+    require 'ruby-kubernetes-controller'
     
     persistentvolumeclaim = "localhost"
     bearer_token = "token"

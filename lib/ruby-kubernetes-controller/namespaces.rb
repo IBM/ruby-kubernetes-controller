@@ -3,18 +3,18 @@ require 'uri'
 require 'openssl'
 require 'json'
 
-require 'rubykubernetescontroller/generic'
+require_relative 'generic'
 
-module PersistentVolumes
+module Namespaces
   include Generic
 
-  # Create new PersistentVolume
-  def create_new_persistentvolume(config)
-    extension = "/api/v1/persistentvolumes"
+  # Create new Namespace
+  def create_new_namespace(config)
+    extension = "/api/v1/namespaces"
 
     uri = prepareURI(@endpoint, extension)
 
-    request = prepareGenericRequest(uri, @bearer_token,  "POST")
+    request = prepareGenericRequest(uri, @bearer_token, "POST")
     request.content_type = "application/json"
 
     if @yaml
@@ -29,16 +29,18 @@ module PersistentVolumes
       response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
         http.request(request)
       end
+
       return response.body
 
     rescue Errno::ECONNREFUSED
       raise "Connection for host #{uri.hostname} refused"
     end
+
   end
 
-  # Get all PersistentVolumes
-  def get_all_persistentvolumes
-    extension = "/apis/v1/persistentvolumes"
+  # Get Namespaces
+  def get_all_namespaces
+    extension = '/api/v1/namespaces'
 
     uri = prepareURI(@endpoint, extension)
 
@@ -57,29 +59,9 @@ module PersistentVolumes
     end
   end
 
-  # Get single PersistentVolume
-  def get_single_persistentvolume(persistentvolume_name)
-    extension = "/api/v1/persistentvolumes/#{persistentvolume_name}"
-
-    uri = prepareURI(@endpoint, extension)
-
-    request = prepareGenericRequest(uri, @bearer_token, "GET")
-
-    req_options = prepareGenericRequestOptions(@ssl, uri)
-
-    begin
-      response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
-        http.request(request)
-      end
-      return response.body
-    rescue Errno::ECONNREFUSED
-      raise "Connection for host #{uri.hostname} refused"
-    end
-  end
-
-  # Update existing PersistentVolume
-  def update_namespaced_persistentvolume(persistentvolume_name, update)
-    extension = "/api/v1/persistentvolumes/#{persistentvolume_name}"
+  # Update existing Namespace
+  def update_namespace(namespace, update)
+    extension = "/api/v1/namespaces/#{namespace}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -103,12 +85,11 @@ module PersistentVolumes
     rescue Errno::ECONNREFUSED
       raise "Connection for host #{uri.hostname} refused"
     end
-
   end
 
-  # Patch existing PersistentVolume
-  def patch_persistentvolume(persistentvolume_name, patch)
-    extension = "/api/v1/persistentvolumes/#{persistentvolume_name}"
+  # Patch existing Namespace
+  def patch_namespace(namespace, patch)
+    extension = "/api/v1/namespaces/#{namespace}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -124,14 +105,15 @@ module PersistentVolumes
         http.request(request)
       end
       return response.body
+
     rescue Errno::ECONNREFUSED
       raise "Connection for host #{uri.hostname} refused"
     end
   end
 
-  # Delete existing PersistentVolume
-  def delete_persistentvolume(persistentvolume_name, options = '')
-    extension = "/api/v1/persistentvolumes/#{persistentvolume_name}"
+  # Delete existing Namespace
+  def delete_namespace(namespace, options = '')
+    extension = "/api/v1/namespaces/#{namespace}"
 
     uri = prepareURI(@endpoint, extension)
 

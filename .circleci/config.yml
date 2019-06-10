@@ -15,19 +15,19 @@ jobs:
           command: gem install bundler
       - restore_cache:
           keys:
-            - rubykubernetescontroller-{{ checksum "rubykubernetescontroller.gemspec" }}
+            - ruby-kubernetes-controller-{{ checksum "ruby-kubernetes-controller.gemspec" }}
             # fallback to using the latest cache if no exact match is found
-            - rubykubernetescontroller-
+            - ruby-kubernetes-controller-
       - run:
           name: Install Bundles
           command: bundle check || bundle install
       - save_cache:
           paths:
             - ./vendor/bundle
-          key: rubykubernetescontroller-{{ checksum "rubykubernetescontroller.gemspec" }}
+          key: ruby-kubernetes-controller-{{ checksum "ruby-kubernetes-controller.gemspec" }}
       - run:
           name: Build gem
-          command: gem build rubykubernetescontroller.gemspec
+          command: gem build ruby-kubernetes-controller.gemspec
 
   test:
     docker:
@@ -41,16 +41,16 @@ jobs:
           command: gem install bundler
       - restore_cache:
           keys:
-            - rubykubernetescontroller-{{ checksum "rubykubernetescontroller.gemspec" }}
+            - ruby-kubernetes-controller-{{ checksum "ruby-kubernetes-controller.gemspec" }}
             # fallback to using the latest cache if no exact match is found
-            - rubykubernetescontroller-
+            - ruby-kubernetes-controller-
       - run:
           name: Install Bundles
           command: bundle check || bundle install
       - save_cache:
           paths:
             - ./vendor/bundle
-          key: rubykubernetescontroller-{{ checksum "rubykubernetescontroller.gemspec" }}
+          key: ruby-kubernetes-controller-{{ checksum "ruby-kubernetes-controller.gemspec" }}
       - run:
           name:
           command: bundle exec rake test
@@ -72,8 +72,8 @@ jobs:
       - run:
           name: Publish to Rubygems
           command: |
-            gem build rubykubernetescontroller.gemspec
-            gem push rubykubernetescontroller-$CIRCLE_TAG.gem
+            gem build ruby-kubernetes-controller.gemspec
+            gem push ruby-kubernetes-controller-$CIRCLE_TAG.gem
 
 workflows:
   version: 2

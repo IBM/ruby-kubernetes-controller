@@ -3,15 +3,14 @@ require 'uri'
 require 'openssl'
 require 'json'
 
-require 'rubykubernetescontroller/generic'
+require_relative 'generic'
 
-module Endpoints
-
+module Services
   include Generic
 
-  # Create new Endpoint
-  def create_new_endpoint(namespace, config)
-    extension = "/api/v1/namespaces/#{namespace}/endpoints"
+  # Create new Service
+  def create_new_service(namespace, config)
+    extension = "/api/v1/namespaces/#{namespace}/services"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -37,9 +36,9 @@ module Endpoints
     end
   end
 
-  # Get all Endpoints
-  def get_all_endpoints
-    extension = "/api/v1/endpoints"
+  # Get all Services
+  def get_all_services
+    extension = "/api/v1/services"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -58,9 +57,9 @@ module Endpoints
     end
   end
 
-  # Get all existing Endpoints in Namespace
-  def get_all_namespaced_endpoints(namespace)
-    extension = "/api/v1/namespaces/#{namespace}/endpoints"
+  # Get all existing Services in Namespace
+  def get_all_namespaced_services(namespace)
+    extension = "/api/v1/namespaces/#{namespace}/services"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -79,9 +78,9 @@ module Endpoints
     end
   end
 
-  # Get single Endpoint in Namespace
-  def get_single_namespaced_endpoint(namespace, endpoint_name)
-    extension = "/api/v1/namespaces/#{namespace}/endpoints/#{endpoint_name}"
+  # Get single Service in Namespace
+  def get_single_namespaced_service(namespace, service_name)
+    extension = "/api/v1/namespaces/#{namespace}/services/#{service_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -99,9 +98,9 @@ module Endpoints
     end
   end
 
-  # Update existing Endpoint in Namespace
-  def update_namespaced_endpoint(namespace, endpoint_name, update)
-    extension = "/api/v1/namespaces/#{namespace}/endpoints/#{endpoint_name}"
+  # Update existing Service in Namespace
+  def update_namespaced_service(namespace, service_name, update)
+    extension = "/api/v1/namespaces/#{namespace}/services/#{service_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -127,9 +126,9 @@ module Endpoints
     end
   end
 
-  # Patch existing Endpoint
-  def patch_endpoint(namespace, endpoint_name, patch)
-    extension = "/api/v1/namespaces/#{namespace}/endpoints/#{endpoint_name}"
+  # Patch existing Service
+  def patch_service(namespace, service_name, patch)
+    extension = "/api/v1/namespaces/#{namespace}/services/#{service_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -150,20 +149,13 @@ module Endpoints
     end
   end
 
-  # Delete existing Endpoint
-  def delete_endpoint(namespace, endpoint_name, options = '')
-    extension = "/api/v1/namespaces/#{namespace}/endpoints/#{endpoint_name}"
+  # Delete existing Service
+  def delete_service(namespace, service_name)
+    extension = "/api/v1/namespaces/#{namespace}/services/#{service_name}"
 
     uri = prepareURI(@endpoint, extension)
 
     request = prepareGenericRequest(uri, @bearer_token, "DELETE")
-    request.content_type = "application/json"
-
-    if @yaml
-      request.body = yaml_file_to_json(options)
-    else
-      request.body = options
-    end
 
     req_options = prepareGenericRequestOptions(@ssl, uri)
 
@@ -179,4 +171,6 @@ module Endpoints
   end
 
 end
+
+
 

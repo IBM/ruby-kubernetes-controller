@@ -3,18 +3,19 @@ require 'uri'
 require 'openssl'
 require 'json'
 
-require 'rubykubernetescontroller/generic'
+require_relative 'generic'
 
-module ConfigMaps
+module Endpoints
+
   include Generic
 
-  # Create new ConfigMap
-  def create_new_configmap(namespace, config)
-    extension = "/api/v1/namespaces/#{namespace}/configmaps"
+  # Create new Endpoint
+  def create_new_endpoint(namespace, config)
+    extension = "/api/v1/namespaces/#{namespace}/endpoints"
 
     uri = prepareURI(@endpoint, extension)
 
-    request = prepareGenericRequest(uri, @bearer_token,  "POST")
+    request = prepareGenericRequest(uri, @bearer_token, "POST")
     request.content_type = "application/json"
 
     if @yaml
@@ -36,9 +37,9 @@ module ConfigMaps
     end
   end
 
-  # Get all ConfigMaps
-  def get_all_configmaps
-    extension = "/api/v1/configmaps"
+  # Get all Endpoints
+  def get_all_endpoints
+    extension = "/api/v1/endpoints"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -57,9 +58,9 @@ module ConfigMaps
     end
   end
 
-  # Get all ConfigMaps in a Namespace
-  def get_all_namespaced_configmaps(namespace)
-    extension = "/api/v1/namespaces/#{namespace}/configmaps"
+  # Get all existing Endpoints in Namespace
+  def get_all_namespaced_endpoints(namespace)
+    extension = "/api/v1/namespaces/#{namespace}/endpoints"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -78,9 +79,9 @@ module ConfigMaps
     end
   end
 
-  # Get a single ConfigMap from a Namespace
-  def get_single_namespaced_configmap(namespace, configmap_name)
-    extension = "/api/v1/namespaces/#{namespace}/configmaps/#{configmap_name}"
+  # Get single Endpoint in Namespace
+  def get_single_namespaced_endpoint(namespace, endpoint_name)
+    extension = "/api/v1/namespaces/#{namespace}/endpoints/#{endpoint_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -98,9 +99,9 @@ module ConfigMaps
     end
   end
 
-  # Update existing ConfigMap in Namespace
-  def update_configmap(namespace, configmap_name, update)
-    extension = "/api/v1/namespaces/#{namespace}/configmaps/#{configmap_name}"
+  # Update existing Endpoint in Namespace
+  def update_namespaced_endpoint(namespace, endpoint_name, update)
+    extension = "/api/v1/namespaces/#{namespace}/endpoints/#{endpoint_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -126,9 +127,9 @@ module ConfigMaps
     end
   end
 
-  # Patch existing ConfigMap in Namespace
-  def patch_configmap(namespace, configmap_name, patch)
-    extension = "/api/v1/namespaces/#{namespace}/configmaps/#{configmap_name}"
+  # Patch existing Endpoint
+  def patch_endpoint(namespace, endpoint_name, patch)
+    extension = "/api/v1/namespaces/#{namespace}/endpoints/#{endpoint_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -149,9 +150,9 @@ module ConfigMaps
     end
   end
 
-  # Delete existing ConfigMap in Namespace
-  def delete_configmap(namespace, configmap_name, options = '')
-    extension = "/api/v1/namespaces/#{namespace}/configmaps/#{configmap_name}"
+  # Delete existing Endpoint
+  def delete_endpoint(namespace, endpoint_name, options = '')
+    extension = "/api/v1/namespaces/#{namespace}/endpoints/#{endpoint_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -178,3 +179,4 @@ module ConfigMaps
   end
 
 end
+

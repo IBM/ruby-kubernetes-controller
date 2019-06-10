@@ -3,18 +3,18 @@ require 'uri'
 require 'openssl'
 require 'json'
 
-require 'rubykubernetescontroller/generic'
+require_relative 'generic'
 
-module Namespaces
+module PersistentVolumeClaims
   include Generic
 
-  # Create new Namespace
-  def create_new_namespace(config)
-    extension = "/api/v1/namespaces"
+  # Create new PersistentVolumeClaim
+  def create_new_persistentvolumeclaim(namespace, config)
+    extension = "/apis/apps/v1/namespaces/#{namespace}/persistentvolumeclaims"
 
     uri = prepareURI(@endpoint, extension)
 
-    request = prepareGenericRequest(uri, @bearer_token, "POST")
+    request = prepareGenericRequest(uri, @bearer_token,  "POST")
     request.content_type = "application/json"
 
     if @yaml
@@ -29,18 +29,16 @@ module Namespaces
       response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
         http.request(request)
       end
-
       return response.body
 
     rescue Errno::ECONNREFUSED
       raise "Connection for host #{uri.hostname} refused"
     end
-
   end
 
-  # Get Namespaces
-  def get_all_namespaces
-    extension = '/api/v1/namespaces'
+  # Get all PersistentVolumeClaims
+  def get_all_persistentvolumeclaims
+    extension = "/apis/apps/v1/persistentvolumeclaims"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -59,9 +57,50 @@ module Namespaces
     end
   end
 
-  # Update existing Namespace
-  def update_namespace(namespace, update)
-    extension = "/api/v1/namespaces/#{namespace}"
+  # Get all existing PersistentVolumeClaims in Namespace
+  def get_all_namespaced_persistentvolumeclaims(namespace)
+    extension = "/apis/apps/v1/namespaces/#{namespace}/persistentvolumeclaims"
+
+    uri = prepareURI(@endpoint, extension)
+
+    request = prepareGenericRequest(uri, @bearer_token, "GET")
+
+    req_options = prepareGenericRequestOptions(@ssl, uri)
+
+    begin
+      response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+        http.request(request)
+      end
+      return response.body
+
+    rescue Errno::ECONNREFUSED
+      raise "Connection for host #{uri.hostname} refused"
+    end
+  end
+
+  # Get single PersistentVolumeClaim in Namespace
+  def get_single_namespaced_persistentvolumeclaim(namespace, persistentvolumeclaim_name)
+    extension = "/apis/apps/v1/namespaces/#{namespace}/persistentvolumeclaims/#{persistentvolumeclaim_name}"
+
+    uri = prepareURI(@endpoint, extension)
+
+    request = prepareGenericRequest(uri, @bearer_token, "GET")
+
+    req_options = prepareGenericRequestOptions(@ssl, uri)
+
+    begin
+      response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+        http.request(request)
+      end
+      return response.body
+    rescue Errno::ECONNREFUSED
+      raise "Connection for host #{uri.hostname} refused"
+    end
+  end
+
+  # Update existing PersistentVolumeClaim in Namespace
+  def update_namespaced_persistentvolumeclaim(namespace, persistentvolumeclaim_name, update)
+    extension = "/apis/apps/v1/namespaces/#{namespace}/persistentvolumeclaims/#{persistentvolumeclaim_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -85,11 +124,12 @@ module Namespaces
     rescue Errno::ECONNREFUSED
       raise "Connection for host #{uri.hostname} refused"
     end
+
   end
 
-  # Patch existing Namespace
-  def patch_namespace(namespace, patch)
-    extension = "/api/v1/namespaces/#{namespace}"
+  # Patch existing PersistentVolumeClaim in Namespace
+  def patch_persistentvolumeclaim(namespace, persistentvolumeclaim_name, patch)
+    extension = "/apis/apps/v1/namespaces/#{namespace}/persistentvolumeclaims/#{persistentvolumeclaim_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -105,15 +145,14 @@ module Namespaces
         http.request(request)
       end
       return response.body
-
     rescue Errno::ECONNREFUSED
       raise "Connection for host #{uri.hostname} refused"
     end
   end
 
-  # Delete existing Namespace
-  def delete_namespace(namespace, options = '')
-    extension = "/api/v1/namespaces/#{namespace}"
+  # Delete existing PersistentVolumeClaim in Namespace
+  def delete_persistentvolumeclaim(namespace, persistentvolumeclaim_name, options = '')
+    extension = "/apis/apps/v1/namespaces/#{namespace}/persistentvolumeclaims/#{persistentvolumeclaim_name}"
 
     uri = prepareURI(@endpoint, extension)
 
