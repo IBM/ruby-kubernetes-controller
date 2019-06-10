@@ -1,6 +1,6 @@
 # Ruby Kubernetes Controller
 
-[![CircleCI](https://circleci.com/gh/IBM/ruby-kubernetes-controller.svg?style=svg)](https://circleci.com/gh/IBM/ruby-kubernetes-controller) [![Gem Version](https://badge.fury.io/rb/ruby-kubernetes-controller.svg)](https://badge.fury.io/rb/ruby-kubernetes-controller) [![RubyGems](https://img.shields.io/gem/dt/ruby-kubernetes-controller.svg?color=FF502A&label=Gem%20Downloads&style=popout)](https://rubygems.org/gems/ruby-kubernetes-controller) [![License](https://img.shields.io/github/license/ibm/ruby-kubernetes-controller.svg)](https://github.com/IBM/ruby-kubernetes-controller/blob/master/LICENSE.txt) 
+[![CircleCI](https://circleci.com/gh/IBM/ruby-kubernetes-controller.svg?style=svg)](https://circleci.com/gh/IBM/ruby-kubernetes-controller) [![Gem Version](https://badge.fury.io/rb/ruby-kubernetes-controller.svg)](https://badge.fury.io/rb/ruby-kubernetes-controller) [![RubyGems](https://img.shields.io/gem/dt/ruby-kubernetes-controller.svg?color=FF502A&label=gem%20downloads&style=popout)](https://rubygems.org/gems/ruby-kubernetes-controller) [![License](https://img.shields.io/github/license/ibm/ruby-kubernetes-controller.svg)](https://github.com/IBM/ruby-kubernetes-controller/blob/master/LICENSE.txt) 
 
 `Ruby Kubernetes Controller` is a Client-Side library which allows users to 
 interact with core Kubernetes APIs natively from within their 
