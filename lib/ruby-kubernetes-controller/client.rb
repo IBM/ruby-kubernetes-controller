@@ -35,6 +35,7 @@ module RubyKubernetesController
     include ConfigMaps
     include PersistentVolumes
     include PersistentVolumeClaims
+    include Jobs
 
     # Constructor
     def initialize(endpoint, bearer_token, ssl = true, yaml = false)
