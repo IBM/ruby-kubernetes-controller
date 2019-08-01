@@ -15,6 +15,7 @@ require_relative 'replicasets'
 require_relative 'configmaps'
 require_relative 'persistentvolumes'
 require_relative 'persistentvolumeclaims'
+require_relative 'jobs'
 
 # Part of the RubyKubernetesController module
 module RubyKubernetesController
