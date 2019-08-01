@@ -828,8 +828,8 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
     puts yaml_client.create_new_deployment(namespace, yaml_file_path) # Returns JSON
 ```
 
-#### Get Deploymentes
-* List all Deploymentes
+#### Get Deployments
+* List all Deployments
 ```ruby
     require 'ruby-kubernetes-controller'
     
@@ -839,11 +839,11 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
     
     client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl)
     
-    puts client.get_all_deploymentes # Returns JSON
+    puts client.get_all_deployments # Returns JSON
 ```
 
-#### Get Namespaced Deploymentes
-* List all existing Deploymentes in Namespace
+#### Get Namespaced Deployments
+* List all existing Deployments in Namespace
 ```ruby
     require 'ruby-kubernetes-controller'
     
@@ -855,7 +855,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
     
     namespace = "default"
     
-    puts client.get_all_namespaced_deploymentes(namespace) # Returns JSON
+    puts client.get_all_namespaced_deployments(namespace) # Returns JSON
 ```
 
 #### Get Single Namespaced Deployment
@@ -1601,6 +1601,170 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
     yaml_file_path = 'path/to/file.yaml'
     
     puts yaml_client.delete_persistentvolumeclaim(namespace, persistentvolumeclaim_name, yaml_file_path) # Returns JSON
+```
+
+
+#### Create Job
+* Create new Job
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    endpoint = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    # With JSON
+    json_client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl, yaml = false)
+    namespace = "default"
+    json_config = 
+    '{
+        "kind": "Job",
+        "apiVersion": "extensions/v1beta1",
+         ... 
+     }'   
+    
+    puts json_client.create_new_job(namespace, json_config) # Returns JSON
+    
+    # With YAML
+    yaml_client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl, yaml = true)
+    namespace = "default"
+    yaml_file_path = 'path/to/file.yaml'
+    
+    puts yaml_client.create_new_job(namespace, yaml_file_path) # Returns JSON
+```
+
+#### Get Jobs
+* List all Jobs
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    endpoint = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl)
+    
+    puts client.get_all_jobs # Returns JSON
+```
+
+#### Get Namespaced Jobs
+* List all existing Jobs in Namespace
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    endpoint = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl)
+    
+    namespace = "default"
+    
+    puts client.get_all_namespaced_jobs(namespace) # Returns JSON
+```
+
+#### Get Single Namespaced Job
+* Get details for single Job in Namespace
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    endpoint = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl)
+    
+    namespace = "default"
+    job_name = "job"
+    
+    puts client.get_single_namespaced_job(namespace, job_name) # Returns JSON
+```
+
+#### Update Job
+* Update existing Job in Namespace
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    endpoint = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    # With JSON
+    json_client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl, yaml = false)
+    namespace = "default"
+    job_name = "job"
+    json_update = 
+    '{
+        "kind": "Job",
+        "apiVersion": "extensions/v1beta1",
+         ... 
+     }'    
+    
+    puts json_client.update_namespaced_job(namespace, job_name, json_update) # Returns JSON
+    
+    # With YAML
+    yaml_client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl, yaml = true)
+    namespace = "default"
+    job_name = "job"
+    yaml_file_path = 'path/to/file.yaml'
+    
+    puts yaml_client.update_namespaced_job(namespace, job_name, yaml_file_path) # Returns JSON
+```
+
+#### Patch Job
+* Patch existing Job
+* Patch Format documentation available at: http://jsonpatch.com/
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    endpoint = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl)
+    
+    namespace = "default"
+    job_name = "job"
+    patch = 
+    '[
+      { "op": "replace", "path": "/baz", "value": "boo" },
+      { "op": "add", "path": "/hello", "value": ["world"] },
+      { "op": "remove", "path": "/foo" }
+    ]'    
+    
+    puts client.patch_job(namespace, job_name, patch) # Returns JSON
+```
+
+#### Delete Job
+* Delete existing Job
+* Delete options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_deleteoptions
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    endpoint = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    # With JSON
+    json_client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl, yaml = false)
+    namespace = "default"
+    job_name = "job"
+    json_options = 
+    '{
+        "kind": "Job",
+        "apiVersion": "extensions/v1beta1",
+         ... 
+     }'    
+    
+    puts json_client.delete_job(namespace, job_name, json_options) # Returns JSON
+    
+    # With YAML
+    yaml_client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl, yaml = true)
+    namespace = "default"
+    job_name = "job"
+    yaml_file_path = 'path/to/file.yaml'
+    
+    puts yaml_client.delete_job(namespace, job_name, yaml_file_path) # Returns JSON
 ```
 
 [SERVICEACCOUNT]: https://github.com/IBM/ruby-kubernetes-controller/blob/master/Documentation/serviceaccount.yaml
