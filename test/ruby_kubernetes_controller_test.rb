@@ -449,6 +449,63 @@ class RubyKubernetesControllerTEST < Minitest::Test
     end
   end
 
+  def test_client_create_new_job
+    client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
+
+    assert_raises Exception do
+      client.create_new_job('default', '{"kind":"Job","apiVersion":"apis/batch/v1"}')
+    end
+  end
+
+  def test_client_get_all_jobs
+    client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
+
+    assert_raises Exception do
+      client.get_all_jobs
+    end
+  end
+
+  def test_client_get_all_namespaced_jobs
+    client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
+
+    assert_raises Exception do
+      client.get_all_namespaced_jobs('default')
+    end
+  end
+
+  def test_client_get_single_namespaced_job
+    client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
+
+    assert_raises Exception do
+      client.get_single_namespaced_job('default', 'job')
+    end
+  end
+
+  def test_client_update_namespaced_job
+
+    client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
+
+    assert_raises Exception do
+      client.update_namespaced_job("default","job",'{"kind":"Job","apiVersion":"apis/batch/v1"}')
+    end
+  end
+
+  def test_client_patch_job
+    client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
+
+    assert_raises Exception do
+      client.patch_job('default','job', '[{ "op": "replace", "path": "/spec/path", "value": "testvalue" }]')
+    end
+  end
+
+  def test_client_delete_job
+    client = ::RubyKubernetesController::Client.new("localhost","TOKEN", false)
+
+    assert_raises Exception do
+      client.delete_job('default',"job", '{"kind":"Job","apiVersion":"apis/batch/v1"}')
+    end
+  end
+
   def test_client_check_valid_json
     client = ::RubyKubernetesController::Client.new("localhost","TOKEN", false, true)
 
