@@ -15,6 +15,7 @@ require_relative 'replicasets'
 require_relative 'configmaps'
 require_relative 'persistentvolumes'
 require_relative 'persistentvolumeclaims'
+require_relative 'jobs'
 
 # Part of the RubyKubernetesController module
 module RubyKubernetesController
@@ -34,6 +35,7 @@ module RubyKubernetesController
     include ConfigMaps
     include PersistentVolumes
     include PersistentVolumeClaims
+    include Jobs
 
     # Constructor
     def initialize(endpoint, bearer_token, ssl = true, yaml = false)
