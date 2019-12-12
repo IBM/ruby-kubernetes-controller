@@ -506,6 +506,63 @@ class RubyKubernetesControllerTEST < Minitest::Test
     end
   end
 
+  def test_client_create_new_cronjob
+    client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
+
+    assert_raises Exception do
+      client.create_new_cronjob('default', '{"kind": "CronJob","apiVersion":"batch/v1beta1"}')
+    end
+  end
+
+  def test_client_get_all_cronjobs
+    client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
+
+    assert_raises Exception do
+      client.get_all_cronjobs
+    end
+  end
+
+  def test_client_get_all_namespaced_cronjobs
+    client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
+
+    assert_raises Exception do
+      client.get_all_namespaced_cronjobs('default')
+    end
+  end
+
+  def test_client_get_single_namespaced_cronjob
+    client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
+
+    assert_raises Exception do
+      client.get_single_namespaced_cronjob('default', 'cronjob')
+    end
+  end
+
+  def test_client_update_namespaced_cronjob
+
+    client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
+
+    assert_raises Exception do
+      client.update_namespaced_cronjob("default","cronjob",'{"kind": "CronJob","apiVersion":"batch/v1beta1"}')
+    end
+  end
+
+  def test_client_patch_cronjob
+    client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
+
+    assert_raises Exception do
+      client.patch_cronjob('default','cronjob', '[{ "op": "replace", "path": "/spec/path", "value": "testvalue" }]')
+    end
+  end
+
+  def test_client_delete_cronjob
+    client = ::RubyKubernetesController::Client.new("localhost","TOKEN", false)
+
+    assert_raises Exception do
+      client.delete_cronjob('default',"cronjob", '{"kind": "CronJob","apiVersion":"batch/v1beta1"}')
+    end
+  end
+
   def test_client_check_valid_json
     client = ::RubyKubernetesController::Client.new("localhost","TOKEN", false, true)
 
