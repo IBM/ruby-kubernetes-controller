@@ -1767,4 +1767,167 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
     puts yaml_client.delete_job(namespace, job_name, yaml_file_path) # Returns JSON
 ```
 
+#### Create cronjob
+* Create new cronjob
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    endpoint = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    # With JSON
+    json_client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl, yaml = false)
+    namespace = "default"
+    json_config = 
+    '{
+        "kind": "cronjob",
+        "apiVersion": "extensions/v1beta1",
+         ... 
+     }'   
+    
+    puts json_client.create_new_cronjob(namespace, json_config) # Returns JSON
+    
+    # With YAML
+    yaml_client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl, yaml = true)
+    namespace = "default"
+    yaml_file_path = 'path/to/file.yaml'
+    
+    puts yaml_client.create_new_cronjob(namespace, yaml_file_path) # Returns JSON
+```
+
+#### Get cronjobs
+* List all cronjobs
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    endpoint = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl)
+    
+    puts client.get_all_cronjobs # Returns JSON
+```
+
+#### Get Namespaced cronjobs
+* List all existing cronjobs in Namespace
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    endpoint = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl)
+    
+    namespace = "default"
+    
+    puts client.get_all_namespaced_cronjobs(namespace) # Returns JSON
+```
+
+#### Get Single Namespaced cronjob
+* Get details for single cronjob in Namespace
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    endpoint = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl)
+    
+    namespace = "default"
+    cronjob_name = "cronjob"
+    
+    puts client.get_single_namespaced_cronjob(namespace, cronjob_name) # Returns JSON
+```
+
+#### Update cronjob
+* Update existing cronjob in Namespace
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    endpoint = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    # With JSON
+    json_client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl, yaml = false)
+    namespace = "default"
+    cronjob_name = "cronjob"
+    json_update = 
+    '{
+        "kind": "cronjob",
+        "apiVersion": "extensions/v1beta1",
+         ... 
+     }'    
+    
+    puts json_client.update_namespaced_cronjob(namespace, cronjob_name, json_update) # Returns JSON
+    
+    # With YAML
+    yaml_client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl, yaml = true)
+    namespace = "default"
+    cronjob_name = "cronjob"
+    yaml_file_path = 'path/to/file.yaml'
+    
+    puts yaml_client.update_namespaced_cronjob(namespace, cronjob_name, yaml_file_path) # Returns JSON
+```
+
+#### Patch cronjob
+* Patch existing cronjob
+* Patch Format documentation available at: http://jsonpatch.com/
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    endpoint = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl)
+    
+    namespace = "default"
+    cronjob_name = "cronjob"
+    patch = 
+    '[
+      { "op": "replace", "path": "/baz", "value": "boo" },
+      { "op": "add", "path": "/hello", "value": ["world"] },
+      { "op": "remove", "path": "/foo" }
+    ]'    
+    
+    puts client.patch_cronjob(namespace, cronjob_name, patch) # Returns JSON
+```
+
+#### Delete cronjob
+* Delete existing cronjob
+* Delete options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_deleteoptions
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    endpoint = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    # With JSON
+    json_client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl, yaml = false)
+    namespace = "default"
+    cronjob_name = "cronjob"
+    json_options = 
+    '{
+        "kind": "cronjob",
+        "apiVersion": "extensions/v1beta1",
+         ... 
+     }'    
+    
+    puts json_client.delete_cronjob(namespace, cronjob_name, json_options) # Returns JSON
+    
+    # With YAML
+    yaml_client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl, yaml = true)
+    namespace = "default"
+    cronjob_name = "cronjob"
+    yaml_file_path = 'path/to/file.yaml'
+    
+    puts yaml_client.delete_cronjob(namespace, cronjob_name, yaml_file_path) # Returns JSON
+```
+
 [SERVICEACCOUNT]: https://github.com/IBM/ruby-kubernetes-controller/blob/master/Documentation/serviceaccount.yaml
