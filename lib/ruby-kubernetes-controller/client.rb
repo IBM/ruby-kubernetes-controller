@@ -16,6 +16,7 @@ require_relative 'configmaps'
 require_relative 'persistentvolumes'
 require_relative 'persistentvolumeclaims'
 require_relative 'jobs'
+require_relative 'cronjob'
 
 # Part of the RubyKubernetesController module
 module RubyKubernetesController
@@ -36,6 +37,7 @@ module RubyKubernetesController
     include PersistentVolumes
     include PersistentVolumeClaims
     include Jobs
+    include CronJobs
 
     # Constructor
     def initialize(endpoint, bearer_token, ssl = true, yaml = false)

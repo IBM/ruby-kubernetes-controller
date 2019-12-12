@@ -1781,8 +1781,8 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
     namespace = "default"
     json_config = 
     '{
-        "kind": "cronjob",
-        "apiVersion": "extensions/v1beta1",
+        "kind": "CronJob",
+        "apiVersion": "batch/v1beta1",
          ... 
      }'   
     
@@ -1858,8 +1858,8 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
     cronjob_name = "cronjob"
     json_update = 
     '{
-        "kind": "cronjob",
-        "apiVersion": "extensions/v1beta1",
+        "kind": "CronJob",
+        "apiVersion": "batch/v1beta1",
          ... 
      }'    
     
@@ -1914,8 +1914,8 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
     cronjob_name = "cronjob"
     json_options = 
     '{
-        "kind": "cronjob",
-        "apiVersion": "extensions/v1beta1",
+        "kind": "CronJob",
+        "apiVersion": "batch/v1beta1",
          ... 
      }'    
     

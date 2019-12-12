@@ -5,7 +5,7 @@ require 'json'
 
 require_relative 'generic'
 
-module Jobs
+module CronJobs
     include Generic
     
     # Create new CronJob
