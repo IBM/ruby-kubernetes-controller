@@ -10,7 +10,7 @@ module CronJobs
     
     # Create new CronJob
     def create_new_cronjob(namespace, config)
-        extension = "/apis/batch/v2alpha1/namespaces/#{namespace}/cronjobs"
+        extension = "/apis/batch/v1beta1/namespaces/#{namespace}/cronjobs"
         
         uri = prepareURI(@endpoint, extension)
         
@@ -38,7 +38,7 @@ module CronJobs
     
     # Get all CronJobs
     def get_all_cronjobs
-        extension = "/apis/batch/v2alpha1/cronjobs"
+        extension = "/apis/batch/v1beta1/cronjobs"
         
         uri = prepareURI(@endpoint, extension)
         
@@ -59,7 +59,7 @@ module CronJobs
     
     # Get all existing CronJobs in Namespace
     def get_all_namespaced_cronjobs(namespace)
-        extension = "/apis/batch/v2alpha1/namespaces/#{namespace}/cronjobs"
+        extension = "/apis/batch/v1beta1/namespaces/#{namespace}/cronjobs"
         
         uri = prepareURI(@endpoint, extension)
         
@@ -80,7 +80,7 @@ module CronJobs
     
     # Get single CronJob in Namespace
     def get_single_namespaced_cronjob(namespace, cronjob_name)
-        extension = "/apis/batch/v1/namespaces/#{namespace}/jobs/#{cronjob_name}"
+        extension = "/apis/batch/v1beta1/namespaces/#{namespace}/cronjobs/#{cronjob_name}"
         
         uri = prepareURI(@endpoint, extension)
         
@@ -100,7 +100,7 @@ module CronJobs
     
     # Update existing CronJob in Namespace
     def update_namespaced_cronjob(namespace, cronjob_name, update)
-        extension = "/apis/batch/v2alpha1/namespaces/#{namespace}/cronjobs/#{cronjob_name}"
+        extension = "/apis/batch/v1beta1/namespaces/#{namespace}/cronjobs/#{cronjob_name}"
         
         uri = prepareURI(@endpoint, extension)
         
@@ -129,7 +129,7 @@ module CronJobs
     
     # Patch existing CronJob in Namespace
     def patch_cronjob(namespace, cronjob_name, patch)
-        extension = "/apis/batch/v2alpha1/namespaces/#{namespace}/cronjobs/#{cronjob_name}"
+        extension = "/apis/batch/v1beta1/namespaces/#{namespace}/cronjobs/#{cronjob_name}"
         
         uri = prepareURI(@endpoint, extension)
         
@@ -152,7 +152,7 @@ module CronJobs
     
     # Delete existing Job in Namespace
     def delete_cronjob(namespace, cronjob_name, options = '')
-        extension = "apis/batch/v2alpha1/namespaces/#{namespace}/cronjobs/#{cronjob_name}"
+        extension = "apis/batch/v1beta1/namespaces/#{namespace}/cronjobs/#{cronjob_name}"
         
         uri = prepareURI(@endpoint, extension)
         

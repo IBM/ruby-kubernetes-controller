@@ -17,6 +17,7 @@ require_relative 'persistentvolumes'
 require_relative 'persistentvolumeclaims'
 require_relative 'jobs'
 require_relative 'cronjob'
+require_relative 'utilities'
 
 # Part of the RubyKubernetesController module
 module RubyKubernetesController
@@ -38,6 +39,7 @@ module RubyKubernetesController
     include PersistentVolumeClaims
     include Jobs
     include CronJobs
+    include Utilities
 
     # Constructor
     def initialize(endpoint, bearer_token, ssl = true, yaml = false)
