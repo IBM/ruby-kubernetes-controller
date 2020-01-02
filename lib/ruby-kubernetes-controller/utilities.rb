@@ -35,23 +35,24 @@ module Utilities
   include CronJobs
 
   # Trigger a cronjob
-  def trigger_cronjob(namespace, cronjob_name)
-    cronjob_reponse = get_single_namespaced_cronjob(namespace, cronjob_name)
-    cronjob_json = JSON.parse(cronjob_reponse)
+  def trigger_cronjob(namespace, cronjob_name, restart_policy = 'Never')
+    cronjob_json = JSON.parse(get_single_namespaced_cronjob(namespace, cronjob_name))
+    cronjob_json['spec']['jobTemplate']['spec']['template']['spec']['restartPolicy'] = restart_policy
+    cronjob_json['metadata']['name'] += '-' + ('a'..'z').to_a.shuffle[0,8].join
     json_config =
-        "{
-          'kind': 'Job',
-          'apiVersion': 'extensions/v1beta1',
-          'metadata': {
-            'name': #{cronjob_json['metadata']['name']}
+        '{
+          "kind": "Job",
+          "apiVersion": "batch/v1",
+          "metadata": {
+            "name": ' + cronjob_json['metadata']['name'].to_json + '
           },
-          'spec': {
-            'template': {
-              'spec': #{cronjob_json['spec']['jobTemplate']['spec']}
+          "spec": {
+            "template": {
+              "spec": ' + cronjob_json['spec']['jobTemplate']['spec']['template']['spec'].to_json + '
             }
           }
-        }"
-    puts(json_config)
+        }'
+    create_new_job(namespace, json_config)
   end
 
 end
