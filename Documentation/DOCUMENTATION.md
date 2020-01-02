@@ -1930,4 +1930,22 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
     puts yaml_client.delete_cronjob(namespace, cronjob_name, yaml_file_path) # Returns JSON
 ```
 
+#### Triggering a cronjob
+* Trigger an existing cronjob in Namespace
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    endpoint = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    # With JSON
+    json_client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl, yaml = false)
+    namespace = "default"
+    cronjob_name = "cronjob"
+    restart_policy = "Never"
+    
+    puts json_client.trigger_cronjob(namespace, cronjob_name, restart_policy) # Returns JSON
+```
+
 [SERVICEACCOUNT]: https://github.com/IBM/ruby-kubernetes-controller/blob/master/Documentation/serviceaccount.yaml
