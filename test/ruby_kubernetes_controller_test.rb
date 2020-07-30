@@ -259,6 +259,22 @@ class RubyKubernetesControllerTEST < Minitest::Test
     end
   end
 
+  def test_client_get_all_namespaced_pods_with_field_selector
+    client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
+
+    assert_raises Exception do
+      client.get_all_namespaced_pods_with_field_selector('default', 'field_selector')
+    end
+  end
+
+  def test_client_get_all_namespaced_pods_with_label_selector
+    client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
+
+    assert_raises Exception do
+      client.get_all_namespaced_pods_with_label_selector('default', 'label_selector')
+    end
+  end
+
   def test_client_get_single_namespaced_pod
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 

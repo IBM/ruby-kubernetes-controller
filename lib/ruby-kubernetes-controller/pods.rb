@@ -78,6 +78,54 @@ module Pods
     end
   end
 
+  # Get all existing Pods in Namespace with field selector
+  def get_all_namespaced_pods_with_field_selector(namespace, selector)
+    extension = "/api/v1/namespaces/#{namespace}/pods"
+
+    params = { :fieldSelector => "#{selector}" }
+
+    uri = prepareURIWithParams(@endpoint, extension, params)
+
+    puts(uri)
+
+    request = prepareGenericRequest(uri, @bearer_token, "GET")
+
+    req_options = prepareGenericRequestOptions(@ssl, uri)
+
+    begin
+      response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+        http.request(request)
+      end
+      return response.body
+
+    rescue Errno::ECONNREFUSED
+      raise "Connection for host #{uri.hostname} refused"
+    end
+  end
+
+  # Get all existing Pods in Namespace with label selector
+  def get_all_namespaced_pods_with_label_selector(namespace, selector)
+    extension = "/api/v1/namespaces/#{namespace}/pods"
+
+    params = { :labelSelector => "#{selector}" }
+
+    uri = prepareURIWithParams(@endpoint, extension, params)
+
+    request = prepareGenericRequest(uri, @bearer_token, "GET")
+
+    req_options = prepareGenericRequestOptions(@ssl, uri)
+
+    begin
+      response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+        http.request(request)
+      end
+      return response.body
+
+    rescue Errno::ECONNREFUSED
+      raise "Connection for host #{uri.hostname} refused"
+    end
+  end
+
   # Get single Pod in Namespace
   def get_single_namespaced_pod(namespace, pod_name)
     extension = "/api/v1/namespaces/#{namespace}/pods/#{pod_name}"
