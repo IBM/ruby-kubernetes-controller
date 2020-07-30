@@ -11,6 +11,14 @@ module Generic
     URI.parse("https://#{endpoint}#{extension}")
   end
 
+  # Create a URI Object with params
+  def prepareURIWithParams(endpoint, extension, params)
+    uri = URI.parse("https://#{endpoint}#{extension}")
+    uri.query = URI.encode_www_form(params)
+    
+    uri
+  end
+
   # Prepare a Generic Request Object
   def prepareGenericRequest(uri, bearer_token, type)
     if type == "GET"

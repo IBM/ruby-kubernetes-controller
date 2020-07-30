@@ -543,6 +543,38 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
     puts client.get_all_namespaced_pods(namespace) # Returns JSON
 ```
 
+#### Get Namespaced Pods With Field Selector
+* List all existing Pods in Namespace that have a specific field selector
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    pod = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    client = ::RubyKubernetesController::Client.new(pod, bearer_token, ssl)
+    
+    namespace = "default"
+    
+    puts client.get_all_namespaced_pods_with_field_selector(namespace, field_selector) # Returns JSON
+```
+
+#### Get Namespaced Pods With Label Selector
+* List all existing Pods in Namespace that have a specific label selector
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    pod = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    client = ::RubyKubernetesController::Client.new(pod, bearer_token, ssl)
+    
+    namespace = "default"
+    
+    puts client.get_all_namespaced_pods_with_label_selector(namespace, label_selector) # Returns JSON
+```
+
 #### Get Single Namespaced Pod
 * Get details for single Pod in Namespace
 ```ruby
