@@ -49,9 +49,10 @@ module RubyKubernetesController
       if (bearer_token.empty == true)
         File.open("/var/run/secrets/kubernetes.io/serviceaccount/token").each do |line|
           @bearer_token = line
-        end
+      end
       else
         @bearer_token = bearer_token
+      end
       @ssl = ssl
       @yaml = yaml
     end
