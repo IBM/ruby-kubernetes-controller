@@ -46,10 +46,8 @@ module RubyKubernetesController
       # Instantiating client variables
       @endpoint = endpoint
       @bearer_token = ""
-      if (bearer_token.empty == true)
-        File.open("/var/run/secrets/kubernetes.io/serviceaccount/token").each do |line|
-          @bearer_token = line
-      end
+      if bearer_token.empty?
+        @bearer_token = File.read("/var/run/secrets/kubernetes.io/serviceaccount/token")
       else
         @bearer_token = bearer_token
       end
