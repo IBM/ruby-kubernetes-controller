@@ -2,7 +2,9 @@
 
 ## Pre-requisites
 Before beginning, you must generate a bearer token for the Ruby Kubernetes Controller to use:
-
+If you want to read the bearer token that is in the pod instead of generating one to use, 
+pass in an empty string to bearer_token when calling 
+`::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl)`
 
 1. Save the following as `serviceaccount.yaml` (file available [here][SERVICEACCOUNT])
     <p align="center"><img width=100% src="./serviceaccount.png"></p>
