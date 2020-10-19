@@ -44,13 +44,9 @@ module RubyKubernetesController
     # Constructor
     def initialize(endpoint, bearer_token, ssl = true, yaml = false)
       # Instantiating client variables
+      @bearer_token = bearer_token
+      @bearer_token = default_serviceaccount_token if bearer_token.empty?
       @endpoint = endpoint
-      @bearer_token = ""
-      if bearer_token.empty?
-        @bearer_token = File.read("/var/run/secrets/kubernetes.io/serviceaccount/token")
-      else
-        @bearer_token = bearer_token
-      end
       @ssl = ssl
       @yaml = yaml
     end
@@ -69,5 +65,14 @@ module RubyKubernetesController
     def getSSL
       @ssl
     end
+
+    # Reads the Bearer Token from the pod
+    private
+
+    def default_serviceaccount_token
+      return "" unless File.exist?("/var/run/secrets/kubernetes.io/serviceaccount/token")
+
+      File.read("/var/run/secrets/kubernetes.io/serviceaccount/token")
+   end
   end
 end
