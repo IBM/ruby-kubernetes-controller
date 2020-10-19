@@ -171,7 +171,7 @@ pass in an empty string to bearer_token when calling
     json_config = 
     '{
         "kind": "Ingress",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "networking.k8s.io/v1beta1",
          ... 
      }'   
     
@@ -249,7 +249,7 @@ pass in an empty string to bearer_token when calling
     json_update = 
     '{
         "kind": "Ingress",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "networking.k8s.io/v1beta1",
          ... 
      }'    
     
@@ -305,7 +305,7 @@ pass in an empty string to bearer_token when calling
     json_options = 
     '{
         "kind": "Ingress",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "networking.k8s.io/v1beta1",
          ... 
      }'    
     
@@ -848,7 +848,7 @@ pass in an empty string to bearer_token when calling
     json_config = 
     '{
         "kind": "Deployment",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "extensions/v1",
          ... 
      }'   
     
@@ -926,7 +926,7 @@ pass in an empty string to bearer_token when calling
     json_update = 
     '{
         "kind": "Deployment",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "extensions/v1",
          ... 
      }'    
     
@@ -982,7 +982,7 @@ pass in an empty string to bearer_token when calling
     json_options = 
     '{
         "kind": "Deployment",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "extensions/v1",
          ... 
      }'    
     
@@ -1013,7 +1013,7 @@ pass in an empty string to bearer_token when calling
     json_config = 
     '{
         "kind": "Replicaset",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "apps/v1",
          ... 
      }'   
     
@@ -1091,7 +1091,7 @@ pass in an empty string to bearer_token when calling
     json_update = 
     '{
         "kind": "Replicaset",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "apps/v1",
          ... 
      }'    
     
@@ -1147,7 +1147,7 @@ pass in an empty string to bearer_token when calling
     json_options = 
     '{
         "kind": "Replicaset",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "apps/v1",
          ... 
      }'    
     
@@ -1653,7 +1653,7 @@ pass in an empty string to bearer_token when calling
     json_config = 
     '{
         "kind": "Job",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "batch/v1",
          ... 
      }'   
     
@@ -1730,7 +1730,7 @@ pass in an empty string to bearer_token when calling
     json_update = 
     '{
         "kind": "Job",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "batch/v1",
          ... 
      }'    
     
@@ -1786,7 +1786,7 @@ pass in an empty string to bearer_token when calling
     json_options = 
     '{
         "kind": "Job",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "batch/v1",
          ... 
      }'    
     

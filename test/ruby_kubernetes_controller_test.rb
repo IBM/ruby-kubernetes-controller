@@ -68,7 +68,7 @@ class RubyKubernetesControllerTEST < Minitest::Test
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
     assert_raises Exception do
-      client.create_new_ingress('default', '{"apiVersion":"extensions/v1beta1","kind":"Ingress","metadata":{"name":"test-ingress"},"spec":{"backend":{"serviceName":"testsvc","servicePort":80}}}')
+      client.create_new_ingress('default', '{"apiVersion":"networking.k8s.io/v1beta1","kind":"Ingress","metadata":{"name":"test-ingress"},"spec":{"backend":{"serviceName":"testsvc","servicePort":80}}}')
     end
   end
 
@@ -101,7 +101,7 @@ class RubyKubernetesControllerTEST < Minitest::Test
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
     assert_raises Exception do
-      client.update_namespaced_ingress("default","ingress",'{"kind": "Ingress","apiVersion": "extensions/v1beta1"}')
+      client.update_namespaced_ingress("default","ingress",'{"kind": "Ingress","apiVersion": "networking.k8s.io/v1beta1"}')
     end
   end
 
@@ -117,7 +117,7 @@ class RubyKubernetesControllerTEST < Minitest::Test
     client = ::RubyKubernetesController::Client.new("localhost","TOKEN", false)
 
     assert_raises Exception do
-      client.delete_ingress('default',"ingress", '{"kind": "Ingress","apiVersion": "extensions/v1beta1"}')
+      client.delete_ingress('default',"ingress", '{"kind": "Ingress","apiVersion": "networking.k8s.io/v1beta1"}')
     end
   end
 
@@ -125,7 +125,7 @@ class RubyKubernetesControllerTEST < Minitest::Test
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
     assert_raises Exception do
-      client.create_new_replicaset('default', '{"apiVersion":"extensions/v1beta1","kind":"ReplicaSet","metadata":{"name":"test-replicaset"},"spec":{"backend":{"serviceName":"testsvc","servicePort":80}}}')
+      client.create_new_replicaset('default', '{"apiVersion":"apps/v1","kind":"ReplicaSet","metadata":{"name":"test-replicaset"},"spec":{"backend":{"serviceName":"testsvc","servicePort":80}}}')
     end
   end
 
@@ -158,7 +158,7 @@ class RubyKubernetesControllerTEST < Minitest::Test
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
     assert_raises Exception do
-      client.update_namespaced_replicaset("default","replicaset",'{"kind": "ReplicaSet","apiVersion": "extensions/v1beta1"}')
+      client.update_namespaced_replicaset("default","replicaset",'{"kind": "ReplicaSet","apiVersion": "apps/v1"}')
     end
   end
 
@@ -174,7 +174,7 @@ class RubyKubernetesControllerTEST < Minitest::Test
     client = ::RubyKubernetesController::Client.new("localhost","TOKEN", false)
 
     assert_raises Exception do
-      client.delete_replicaset('default',"replicaset", '{"kind": "ReplicaSet","apiVersion": "extensions/v1beta1"}')
+      client.delete_replicaset('default',"replicaset", '{"kind": "ReplicaSet","apiVersion": "apps/v1"}')
     end
   end
 
@@ -369,7 +369,7 @@ class RubyKubernetesControllerTEST < Minitest::Test
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
     assert_raises Exception do
-      client.create_new_deployment('default', '{"kind":"Deployment","apiVersion":"apps/v1beta1"}')
+      client.create_new_deployment('default', '{"kind":"Deployment","apiVersion":"apps/v1"}')
     end
   end
 
@@ -402,7 +402,7 @@ class RubyKubernetesControllerTEST < Minitest::Test
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 
     assert_raises Exception do
-      client.update_namespaced_deployment("default","deployment",'{"kind":"Deployment","apiVersion":"apps/v1beta1"}')
+      client.update_namespaced_deployment("default","deployment",'{"kind":"Deployment","apiVersion":"apps/v1"}')
     end
   end
 
@@ -418,7 +418,7 @@ class RubyKubernetesControllerTEST < Minitest::Test
     client = ::RubyKubernetesController::Client.new("localhost","TOKEN", false)
 
     assert_raises Exception do
-      client.delete_deployment('default',"deployment", '{"kind":"Deployment","apiVersion":"apps/v1beta1"}')
+      client.delete_deployment('default',"deployment", '{"kind":"Deployment","apiVersion":"apps/v1"}')
     end
   end
 

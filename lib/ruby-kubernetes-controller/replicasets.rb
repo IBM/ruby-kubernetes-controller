@@ -11,7 +11,7 @@ module ReplicaSets
 
   # Create new ReplicaSet
   def create_new_replicaset(namespace, config)
-    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/replicasets"
+    extension = "/apis/apps/v1/namespaces/#{namespace}/replicasets"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -39,7 +39,7 @@ module ReplicaSets
 
   # Get all ReplicaSets
   def get_all_replicasets
-    extension = "/apis/extensions/v1beta1/replicasets"
+    extension = "/apis/apps/v1/replicasets"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -60,7 +60,7 @@ module ReplicaSets
 
   # Get all existing ReplicaSets in Namespace
   def get_all_namespaced_replicasets(namespace)
-    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/replicasets"
+    extension = "/apis/apps/v1/namespaces/#{namespace}/replicasets"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -81,7 +81,7 @@ module ReplicaSets
 
   # Get single ReplicaSet in Namespace
   def get_single_namespaced_replicaset(namespace, replicaset_name)
-    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/replicasets/#{replicaset_name}"
+    extension = "/apis/apps/v1/namespaces/#{namespace}/replicasets/#{replicaset_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -101,7 +101,7 @@ module ReplicaSets
 
   # Update existing ReplicaSet in Namespace
   def update_namespaced_replicaset(namespace, replicaset_name, update)
-    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/replicasets/#{replicaset_name}"
+    extension = "/apis/apps/v1/namespaces/#{namespace}/replicasets/#{replicaset_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -129,7 +129,7 @@ module ReplicaSets
 
   # Patch existing ReplicaSet
   def patch_replicaset(namespace, replicaset_name, patch)
-    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/replicasets/#{replicaset_name}"
+    extension = "/apis/apps/v1/namespaces/#{namespace}/replicasets/#{replicaset_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -152,7 +152,7 @@ module ReplicaSets
 
   # Delete existing Namespace
   def delete_replicaset(namespace, replicaset_name, options = '')
-    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/replicasets/#{replicaset_name}"
+    extension = "/apis/apps/v1/namespaces/#{namespace}/replicasets/#{replicaset_name}"
 
     uri = prepareURI(@endpoint, extension)
 

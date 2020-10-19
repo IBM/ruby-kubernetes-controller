@@ -10,7 +10,7 @@ module Ingresses
 
   # Create new Ingress
   def create_new_ingress(namespace, config)
-    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/ingresses"
+    extension = "/apis/networking.k8s.io/v1beta1/namespaces/#{namespace}/ingresses"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -38,7 +38,7 @@ module Ingresses
 
   # Get all Ingresses
   def get_all_ingresses
-    extension = "/apis/extensions/v1beta1/ingresses"
+    extension = "/apis/networking.k8s.io/v1beta1/ingresses"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -59,7 +59,7 @@ module Ingresses
 
   # Get all existing Ingresses in Namespace
   def get_all_namespaced_ingresses(namespace)
-    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/ingresses"
+    extension = "/apis/networking.k8s.io/v1beta1/namespaces/#{namespace}/ingresses"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -80,7 +80,7 @@ module Ingresses
 
   # Get single Ingress in Namespace
   def get_single_namespaced_ingress(namespace, ingress_name)
-    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/ingresses/#{ingress_name}"
+    extension = "/apis/networking.k8s.io/v1beta1/namespaces/#{namespace}/ingresses/#{ingress_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -100,7 +100,7 @@ module Ingresses
 
   # Update existing Ingress in Namespace
   def update_namespaced_ingress(namespace, ingress_name, update)
-    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/ingresses/#{ingress_name}"
+    extension = "/apis/networking.k8s.io/v1beta1/namespaces/#{namespace}/ingresses/#{ingress_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -128,7 +128,7 @@ module Ingresses
 
   # Patch existing Ingress
   def patch_ingress(namespace, ingress_name, patch)
-    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/ingresses/#{ingress_name}"
+    extension = "/apis/networking.k8s.io/v1beta1/namespaces/#{namespace}/ingresses/#{ingress_name}"
 
     uri = prepareURI(@endpoint, extension)
 
@@ -151,7 +151,7 @@ module Ingresses
 
   # Delete existing Namespace
   def delete_ingress(namespace, ingress_name, options = '')
-    extension = "/apis/extensions/v1beta1/namespaces/#{namespace}/ingresses/#{ingress_name}"
+    extension = "/apis/networking.k8s.io/v1beta1/namespaces/#{namespace}/ingresses/#{ingress_name}"
 
     uri = prepareURI(@endpoint, extension)
 
