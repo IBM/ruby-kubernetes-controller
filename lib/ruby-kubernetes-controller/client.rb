@@ -44,9 +44,9 @@ module RubyKubernetesController
     # Constructor
     def initialize(endpoint, bearer_token, ssl = true, yaml = false)
       # Instantiating client variables
+      @endpoint = endpoint
       @bearer_token = bearer_token
       @bearer_token = default_serviceaccount_token if bearer_token.empty?
-      @endpoint = endpoint
       @ssl = ssl
       @yaml = yaml
     end
