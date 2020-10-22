@@ -10,7 +10,7 @@ module Deployments
     
     # Create new Deployment
     def create_new_deployment(namespace, config)
-        extension = "/apis/apps/v1beta1/namespaces/#{namespace}/deployments"
+        extension = "/apis/apps/v1/namespaces/#{namespace}/deployments"
         
         uri = prepareURI(@endpoint, extension)
         
@@ -38,7 +38,7 @@ module Deployments
     
     # Get all Deployments
     def get_all_deployments
-        extension = "/apis/apps/v1beta1/deployments"
+        extension = "/apis/apps/v1/deployments"
         
         uri = prepareURI(@endpoint, extension)
         
@@ -59,7 +59,7 @@ module Deployments
     
     # Get all existing Deployments in Namespace
     def get_all_namespaced_deployments(namespace)
-        extension = "/apis/apps/v1beta1/namespaces/#{namespace}/deployments"
+        extension = "/apis/apps/v1/namespaces/#{namespace}/deployments"
         
         uri = prepareURI(@endpoint, extension)
         
@@ -80,7 +80,7 @@ module Deployments
     
     # Get single Deployment in Namespace
     def get_single_namespaced_deployment(namespace, deployment_name)
-        extension = "/apis/apps/v1beta1/namespaces/#{namespace}/deployments/#{deployment_name}"
+        extension = "/apis/apps/v1/namespaces/#{namespace}/deployments/#{deployment_name}"
         
         uri = prepareURI(@endpoint, extension)
         
@@ -100,7 +100,7 @@ module Deployments
     
     # Update existing Deployment in Namespace
     def update_namespaced_deployment(namespace, deployment_name, update)
-        extension = "/apis/apps/v1beta1/namespaces/#{namespace}/deployments/#{deployment_name}"
+        extension = "/apis/apps/v1/namespaces/#{namespace}/deployments/#{deployment_name}"
         
         uri = prepareURI(@endpoint, extension)
         
@@ -129,7 +129,7 @@ module Deployments
     
     # Patch existing Deployment in Namespace
     def patch_deployment(namespace, deployment_name, patch)
-        extension = "/apis/apps/v1beta1/namespaces/#{namespace}/deployments/#{deployment_name}"
+        extension = "/apis/apps/v1/namespaces/#{namespace}/deployments/#{deployment_name}"
         
         uri = prepareURI(@endpoint, extension)
         
@@ -152,7 +152,7 @@ module Deployments
     
     # Delete existing Deployment in Namespace
     def delete_deployment(namespace, deployment_name, options = '')
-        extension = "/apis/apps/v1beta1/namespaces/#{namespace}/deployments/#{deployment_name}"
+        extension = "/apis/apps/v1/namespaces/#{namespace}/deployments/#{deployment_name}"
         
         uri = prepareURI(@endpoint, extension)
         

@@ -2,7 +2,9 @@
 
 ## Pre-requisites
 Before beginning, you must generate a bearer token for the Ruby Kubernetes Controller to use:
-
+If you want to read the bearer token that is in the pod instead of generating one to use, 
+pass in an empty string to bearer_token when calling 
+`::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl)`
 
 1. Save the following as `serviceaccount.yaml` (file available [here][SERVICEACCOUNT])
     <p align="center"><img width=100% src="./serviceaccount.png"></p>
@@ -169,7 +171,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
     json_config = 
     '{
         "kind": "Ingress",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "networking.k8s.io/v1beta1",
          ... 
      }'   
     
@@ -247,7 +249,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
     json_update = 
     '{
         "kind": "Ingress",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "networking.k8s.io/v1beta1",
          ... 
      }'    
     
@@ -303,7 +305,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
     json_options = 
     '{
         "kind": "Ingress",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "networking.k8s.io/v1beta1",
          ... 
      }'    
     
@@ -846,7 +848,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
     json_config = 
     '{
         "kind": "Deployment",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "extensions/v1",
          ... 
      }'   
     
@@ -924,7 +926,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
     json_update = 
     '{
         "kind": "Deployment",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "extensions/v1",
          ... 
      }'    
     
@@ -980,7 +982,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
     json_options = 
     '{
         "kind": "Deployment",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "extensions/v1",
          ... 
      }'    
     
@@ -1011,7 +1013,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
     json_config = 
     '{
         "kind": "Replicaset",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "apps/v1",
          ... 
      }'   
     
@@ -1089,7 +1091,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
     json_update = 
     '{
         "kind": "Replicaset",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "apps/v1",
          ... 
      }'    
     
@@ -1145,7 +1147,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
     json_options = 
     '{
         "kind": "Replicaset",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "apps/v1",
          ... 
      }'    
     
@@ -1651,7 +1653,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
     json_config = 
     '{
         "kind": "Job",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "batch/v1",
          ... 
      }'   
     
@@ -1728,7 +1730,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
     json_update = 
     '{
         "kind": "Job",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "batch/v1",
          ... 
      }'    
     
@@ -1784,7 +1786,7 @@ Before beginning, you must generate a bearer token for the Ruby Kubernetes Contr
     json_options = 
     '{
         "kind": "Job",
-        "apiVersion": "extensions/v1beta1",
+        "apiVersion": "batch/v1",
          ... 
      }'    
     
