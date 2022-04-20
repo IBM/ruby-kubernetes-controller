@@ -44,7 +44,9 @@ module Utilities
           "kind": "Job",
           "apiVersion": "batch/v1",
           "metadata": {
-            "name": ' + cronjob_json['metadata']['name'].to_json + '
+            "name": ' + cronjob_json['metadata']['name'].to_json + ',
+            "annotations": ' + cronjob_json['metadata']['annotations'].to_json + ',
+            "labels": ' + cronjob_json['metadata']['labels'].to_json + '
           },
           "spec": {
             "template": {
