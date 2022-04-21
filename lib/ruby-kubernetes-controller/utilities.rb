@@ -44,14 +44,10 @@ module Utilities
           "kind": "Job",
           "apiVersion": "batch/v1",
           "metadata": {
-            "name": ' + cronjob_json['metadata']['name'].to_json + ',
-            "annotations": ' + cronjob_json['metadata']['annotations'].to_json + ',
-            "labels": ' + cronjob_json['metadata']['labels'].to_json + '
+            "name": ' + cronjob_json['metadata']['name'].to_json + '
           },
           "spec": {
-            "template": {
-              "spec": ' + cronjob_json['spec']['jobTemplate']['spec']['template']['spec'].to_json + '
-            }
+            "template": ' + cronjob_json['spec']['jobTemplate']['spec']['template'].to_json + '
           }
         }'
     create_new_job(namespace, json_config)
