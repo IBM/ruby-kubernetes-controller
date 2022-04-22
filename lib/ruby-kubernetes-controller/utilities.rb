@@ -47,9 +47,7 @@ module Utilities
             "name": ' + cronjob_json['metadata']['name'].to_json + '
           },
           "spec": {
-            "template": {
-              "spec": ' + cronjob_json['spec']['jobTemplate']['spec']['template']['spec'].to_json + '
-            }
+            "template": ' + cronjob_json['spec']['jobTemplate']['spec']['template'].to_json + '
           }
         }'
     create_new_job(namespace, json_config)
