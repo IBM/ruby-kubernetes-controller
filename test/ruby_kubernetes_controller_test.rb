@@ -465,6 +465,62 @@ class RubyKubernetesControllerTEST < Minitest::Test
     end
   end
 
+  def test_client_create_new_secret
+    client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
+  
+    assert_raises Exception do
+      client.create_new_secret('default', '{"kind": "Secret","apiVersion": "v1"}')
+    end
+  end
+  
+  def test_client_get_all_secrets
+    client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
+  
+    assert_raises Exception do
+      client.get_all_secrets
+    end
+  end
+  
+  def test_client_get_all_namespaced_secrets
+    client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
+  
+    assert_raises Exception do
+      client.get_all_namespaced_secrets('default')
+    end
+  end
+  
+  def test_client_get_single_namespaced_secret
+    client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
+  
+    assert_raises Exception do
+      client.get_single_namespaced_secret('default', 'my-secret')
+    end
+  end
+  
+  def test_client_update_secret
+    client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
+  
+    assert_raises Exception do
+      client.update_secret('default', 'my-secret', '{"kind": "Secret","apiVersion": "v1"}')
+    end
+  end
+  
+  def test_client_patch_secret
+    client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
+  
+    assert_raises Exception do
+      client.patch_secret('default', 'my-secret', '{"op": "replace", "path": "/data", "value": "new-value"}')
+    end
+  end
+  
+  def test_client_delete_secret
+    client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
+  
+    assert_raises Exception do
+      client.delete_secret('default', 'my-secret', '{"kind": "Secret","apiVersion": "v1"}')
+    end
+  end
+
   def test_client_create_new_job
     client = ::RubyKubernetesController::Client.new("localhost", "TOKEN", false)
 

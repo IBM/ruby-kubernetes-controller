@@ -1327,6 +1327,146 @@ pass in an empty string to bearer_token when calling
     puts yaml_client.delete_configmap(namespace, configmap_name, yaml_file_path) # Returns JSON
 ```
 
+#### Create Secret
+* Create new Secret in Namespace
+* Config options documentation available at: https://kubernetes.io/docs/concepts/configuration/secret/
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    endpoint = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    # Create new Secret
+    secret = '{
+        "apiVersion": "v1",
+        "kind": "Secret",
+        "metadata": {
+            "name": "my-secret",
+            "namespace": "default"
+        },
+        "data": {
+            "username": "base64-encoded-username",
+            "password": "base64-encoded-password"
+        }
+    }'
+    
+    client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl)
+    puts client.create_new_secret("default", secret) # Returns JSON
+```
+
+#### Get All Secrets
+* List all Secrets
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    endpoint = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl)
+    
+    puts client.get_all_secrets # Returns JSON
+```
+
+#### Get All Secrets in a Namespace
+* List all Secrets in a specific Namespace
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    endpoint = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl)
+    
+    namespace = "default"
+    
+    puts client.get_all_namespaced_secrets(namespace) # Returns JSON
+```
+
+#### Get Single Namespaced Secret
+* Get details for a single Secret in a Namespace
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    endpoint = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl)
+    
+    namespace = "default"
+    secret_name = "my-secret"
+    
+    puts client.get_single_namespaced_secret(namespace, secret_name) # Returns JSON
+```
+
+#### Update Secret
+* Update existing Secret in Namespace
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    endpoint = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    # Update existing Secret
+    update = '{
+    "metadata": {
+        "name": "my-secret"
+    },
+    "data": {
+        "username": "base64-encoded-username",
+        "password": "base64-encoded-password"
+    }
+    }'
+    
+    client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl)
+    namespace = "default"
+    secret_name = "my-secret"
+    
+    puts client.update_secret(namespace, secret_name, update) # Returns JSON
+```
+
+#### Patch Secret
+* Patch existing Secret in Namespace
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    endpoint = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    # Patch existing Secret
+    patch = '[
+      { "op": "replace", "path": "/data/username", "value": "new-base64-encoded-username" }
+    ]'
+    
+    client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl)
+    namespace = "default"
+    secret_name = "my-secret"
+    
+    puts client.patch_secret(namespace, secret_name, patch) # Returns JSON
+```
+
+#### Delete Secret
+* Delete existing Secret in Namespace
+```ruby
+    require 'ruby-kubernetes-controller'
+    
+    endpoint = "localhost"
+    bearer_token = "token"
+    ssl = false
+    
+    client = ::RubyKubernetesController::Client.new(endpoint, bearer_token, ssl)
+    
+    namespace = "default"
+    secret_name = "my-secret"
+    
+    puts client.delete_secret(namespace, secret_name) # Returns JSON
+```
+
 #### Create PersistentVolume
 * Create new PersistentVolume
 * Config options documentation available at: https://kubernetes.io/docs/reference/federation/v1/definitions/#_v1_persistentvolume
